@@ -32,11 +32,6 @@ extension Sdb {
     public struct ReplaceableAttribute: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: true, type: .string), 
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "Replace", required: false, type: .boolean)
-        ]
         /// The value of the replaceable attribute.
         public let value: String
         /// The name of the replaceable attribute.
@@ -62,12 +57,6 @@ extension Sdb {
     public struct GetAttributesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ConsistentRead", required: false, type: .boolean), 
-            AWSShapeProperty(label: "ItemName", required: true, type: .string), 
-            AWSShapeProperty(label: "DomainName", required: true, type: .string), 
-            AWSShapeProperty(label: "AttributeNames", required: false, type: .structure)
-        ]
         /// Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If true, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.
         public let consistentRead: Bool?
         /// The name of the item.
@@ -97,10 +86,6 @@ extension Sdb {
     public struct ListDomainsRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MaxNumberOfDomains", required: false, type: .integer), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.
         public let maxNumberOfDomains: Int32?
         /// A string informing Amazon SimpleDB where to start the next list of domain names.
@@ -120,9 +105,6 @@ extension Sdb {
     public struct AttributeList: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Attribute", required: false, type: .list)
-        ]
         public let attribute: [Attribute]?
 
         public init(attribute: [Attribute]? = nil) {
@@ -141,9 +123,6 @@ extension Sdb {
     public struct GetAttributesResult: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Attributes", required: false, type: .structure)
-        ]
         /// The list of attributes returned by the operation.
         public let attributes: AttributeList?
 
@@ -159,11 +138,6 @@ extension Sdb {
     public struct SelectRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ConsistentRead", required: false, type: .boolean), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "SelectExpression", required: true, type: .string)
-        ]
         /// Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If true, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.
         public let consistentRead: Bool?
         /// A string informing Amazon SimpleDB where to start the next list of ItemNames.
@@ -188,10 +162,6 @@ extension Sdb {
     public struct BatchDeleteAttributesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Items", required: true, type: .structure), 
-            AWSShapeProperty(label: "DomainName", required: true, type: .string)
-        ]
         /// A list of items on which to perform the operation.
         public let items: DeletableItemList
         /// The name of the domain in which the attributes are being deleted.
@@ -213,15 +183,6 @@ extension Sdb {
     public struct DomainMetadataResult: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Timestamp", required: false, type: .integer), 
-            AWSShapeProperty(label: "AttributeNamesSizeBytes", required: false, type: .long), 
-            AWSShapeProperty(label: "AttributeValuesSizeBytes", required: false, type: .long), 
-            AWSShapeProperty(label: "ItemCount", required: false, type: .integer), 
-            AWSShapeProperty(label: "AttributeValueCount", required: false, type: .integer), 
-            AWSShapeProperty(label: "AttributeNameCount", required: false, type: .integer), 
-            AWSShapeProperty(label: "ItemNamesSizeBytes", required: false, type: .long)
-        ]
         /// The data and time when metadata was calculated, in Epoch (UNIX) seconds.
         public let timestamp: Int32?
         /// The total size of all unique attribute names in the domain, in bytes.
@@ -261,11 +222,6 @@ extension Sdb {
     public struct Item: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AlternateNameEncoding", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "Attributes", required: true, type: .structure)
-        ]
         public let alternateNameEncoding: String?
         /// The name of the item.
         public let name: String
@@ -290,12 +246,6 @@ extension Sdb {
     public struct Attribute: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AlternateNameEncoding", required: false, type: .string), 
-            AWSShapeProperty(label: "AlternateValueEncoding", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "Value", required: true, type: .string)
-        ]
         public let alternateNameEncoding: String?
         public let alternateValueEncoding: String?
         /// The name of the attribute.
@@ -323,9 +273,6 @@ extension Sdb {
     public struct DomainMetadataRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DomainName", required: true, type: .string)
-        ]
         /// The name of the domain for which to display the metadata of.
         public let domainName: String
 
@@ -342,9 +289,6 @@ extension Sdb {
     public struct DeleteDomainRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DomainName", required: true, type: .string)
-        ]
         /// The name of the domain to delete.
         public let domainName: String
 
@@ -361,10 +305,6 @@ extension Sdb {
     public struct BatchPutAttributesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Items", required: true, type: .structure), 
-            AWSShapeProperty(label: "DomainName", required: true, type: .string)
-        ]
         /// A list of items on which to perform the operation.
         public let items: ReplaceableItemList
         /// The name of the domain in which the attributes are being stored.
@@ -386,10 +326,6 @@ extension Sdb {
     public struct ReplaceableItem: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ItemName", required: true, type: .string), 
-            AWSShapeProperty(label: "Attributes", required: true, type: .structure)
-        ]
         /// The name of the replaceable item.
         public let name: String
         /// The list of attributes for a replaceable item.
@@ -411,9 +347,6 @@ extension Sdb {
     public struct DeletableItemList: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Item", required: false, type: .list)
-        ]
         public let item: [DeletableItem]?
 
         public init(item: [DeletableItem]? = nil) {
@@ -432,9 +365,6 @@ extension Sdb {
     public struct AttributeNameList: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttributeName", required: false, type: .list)
-        ]
         public let attributeName: [String]?
 
         public init(attributeName: [String]? = nil) {
@@ -449,10 +379,6 @@ extension Sdb {
     public struct DeletableItem: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ItemName", required: true, type: .string), 
-            AWSShapeProperty(label: "Attributes", required: false, type: .structure)
-        ]
         public let name: String
         public let attributes: DeletableAttributeList?
 
@@ -471,11 +397,6 @@ extension Sdb {
     public struct UpdateCondition: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "Exists", required: false, type: .boolean)
-        ]
         /// The value of an attribute. This value can only be specified when the Exists parameter is equal to true.
         public let value: String?
         /// The name of the attribute involved in the condition.
@@ -499,9 +420,6 @@ extension Sdb {
     public struct ItemList: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Item", required: false, type: .list)
-        ]
         public let item: [Item]?
 
         public init(item: [Item]? = nil) {
@@ -520,12 +438,6 @@ extension Sdb {
     public struct PutAttributesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ItemName", required: true, type: .string), 
-            AWSShapeProperty(label: "Attributes", required: true, type: .structure), 
-            AWSShapeProperty(label: "DomainName", required: true, type: .string), 
-            AWSShapeProperty(label: "Expected", required: false, type: .structure)
-        ]
         /// The name of the item.
         public let itemName: String
         /// The list of attributes.
@@ -556,10 +468,6 @@ extension Sdb {
     public struct DeletableAttribute: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: true, type: .string)
-        ]
         /// The value of the attribute.
         public let value: String?
         /// The name of the attribute.
@@ -580,12 +488,6 @@ extension Sdb {
     public struct DeleteAttributesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ItemName", required: true, type: .string), 
-            AWSShapeProperty(label: "Attributes", required: false, type: .structure), 
-            AWSShapeProperty(label: "DomainName", required: true, type: .string), 
-            AWSShapeProperty(label: "Expected", required: false, type: .structure)
-        ]
         /// The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.
         public let itemName: String
         /// A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
@@ -615,10 +517,6 @@ extension Sdb {
     public struct ListDomainsResult: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "DomainNames", required: false, type: .structure)
-        ]
         /// An opaque token indicating that there are more domains than the specified MaxNumberOfDomains still available.
         public let nextToken: String?
         /// A list of domain names that match the expression.
@@ -638,9 +536,6 @@ extension Sdb {
     public struct ReplaceableAttributeList: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Attribute", required: false, type: .list)
-        ]
         public let attribute: [ReplaceableAttribute]?
 
         public init(attribute: [ReplaceableAttribute]? = nil) {
@@ -659,9 +554,6 @@ extension Sdb {
     public struct DeletableAttributeList: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Attribute", required: false, type: .list)
-        ]
         public let attribute: [DeletableAttribute]?
 
         public init(attribute: [DeletableAttribute]? = nil) {
@@ -680,9 +572,6 @@ extension Sdb {
     public struct ReplaceableItemList: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Item", required: false, type: .list)
-        ]
         public let item: [ReplaceableItem]?
 
         public init(item: [ReplaceableItem]? = nil) {
@@ -701,10 +590,6 @@ extension Sdb {
     public struct SelectResult: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Items", required: false, type: .structure), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// A list of items that match the select expression.
         public let items: ItemList?
         /// An opaque token indicating that more items than MaxNumberOfItems were matched, the response size exceeded 1 megabyte, or the execution time exceeded 5 seconds.
@@ -724,9 +609,6 @@ extension Sdb {
     public struct CreateDomainRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DomainName", required: true, type: .string)
-        ]
         /// The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
         public let domainName: String
 
@@ -743,9 +625,6 @@ extension Sdb {
     public struct DomainNameList: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DomainName", required: false, type: .list)
-        ]
         public let domainName: [String]?
 
         public init(domainName: [String]? = nil) {

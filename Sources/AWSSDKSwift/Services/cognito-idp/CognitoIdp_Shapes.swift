@@ -32,9 +32,6 @@ extension CognitoIdp {
     public struct DescribeUserImportJobResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserImportJob", required: false, type: .structure)
-        ]
         /// The job object that represents the user import job.
         public let userImportJob: UserImportJobType?
 
@@ -58,24 +55,6 @@ extension CognitoIdp {
     public struct CreateUserPoolRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolTags", required: false, type: .map), 
-            AWSShapeProperty(label: "EmailVerificationSubject", required: false, type: .string), 
-            AWSShapeProperty(label: "AdminCreateUserConfig", required: false, type: .structure), 
-            AWSShapeProperty(label: "Schema", required: false, type: .list), 
-            AWSShapeProperty(label: "Policies", required: false, type: .structure), 
-            AWSShapeProperty(label: "AliasAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "LambdaConfig", required: false, type: .structure), 
-            AWSShapeProperty(label: "MfaConfiguration", required: false, type: .enum), 
-            AWSShapeProperty(label: "PoolName", required: true, type: .string), 
-            AWSShapeProperty(label: "EmailConfiguration", required: false, type: .structure), 
-            AWSShapeProperty(label: "SmsVerificationMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "EmailVerificationMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "SmsConfiguration", required: false, type: .structure), 
-            AWSShapeProperty(label: "SmsAuthenticationMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "AutoVerifiedAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "DeviceConfiguration", required: false, type: .structure)
-        ]
         /// The cost allocation tags for the user pool. For more information, see Adding Cost Allocation Tags to Your User Pool 
         public let userPoolTags: [String: String]?
         /// A string representing the email verification subject.
@@ -168,10 +147,6 @@ extension CognitoIdp {
     public struct ListUsersInGroupResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Users", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The users returned in the request to list users.
         public let users: [UserType]?
         /// An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
@@ -195,10 +170,6 @@ extension CognitoIdp {
     public struct NumberAttributeConstraintsType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MinValue", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxValue", required: false, type: .string)
-        ]
         /// The minimum value of an attribute that is of the number data type.
         public let minValue: String?
         /// The maximum value of an attribute that is of the number data type.
@@ -224,11 +195,6 @@ extension CognitoIdp {
     public struct ListDevicesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Limit", required: false, type: .integer), 
-            AWSShapeProperty(label: "PaginationToken", required: false, type: .string), 
-            AWSShapeProperty(label: "AccessToken", required: true, type: .string)
-        ]
         /// The limit of the device request.
         public let limit: Int32?
         /// The pagination token for the list request.
@@ -253,9 +219,6 @@ extension CognitoIdp {
     public struct DeleteUserPoolRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The user pool ID for the user pool you want to delete.
         public let userPoolId: String
 
@@ -272,9 +235,6 @@ extension CognitoIdp {
     public struct GetUserAttributeVerificationCodeResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "CodeDeliveryDetails", required: false, type: .structure)
-        ]
         /// The code delivery details returned by the server in response to the request to get the user attribute verification code.
         public let codeDeliveryDetails: CodeDeliveryDetailsType?
 
@@ -290,14 +250,6 @@ extension CognitoIdp {
     public struct SignUpRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "Password", required: true, type: .string), 
-            AWSShapeProperty(label: "ValidationData", required: false, type: .list), 
-            AWSShapeProperty(label: "SecretHash", required: false, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// An array of name-value pairs representing user attributes.
         public let userAttributes: [AttributeType]?
         /// The ID of the client associated with the user pool.
@@ -344,9 +296,6 @@ extension CognitoIdp {
     public struct DescribeUserPoolClientResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolClient", required: false, type: .structure)
-        ]
         /// The user pool client from a server response to describe the user pool client.
         public let userPoolClient: UserPoolClientType?
 
@@ -362,13 +311,6 @@ extension CognitoIdp {
     public struct AdminRespondToAuthChallengeRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ChallengeName", required: true, type: .enum), 
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "Session", required: false, type: .string), 
-            AWSShapeProperty(label: "ChallengeResponses", required: false, type: .map), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The name of the challenge.
         public let challengeName: ChallengeNameType
         /// The client ID.
@@ -407,12 +349,6 @@ extension CognitoIdp {
     public struct AdminListGroupsForUserRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Username", required: true, type: .string), 
-            AWSShapeProperty(label: "Limit", required: false, type: .integer), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The username for the user.
         public let username: String
         /// The limit of the request to list groups.
@@ -458,10 +394,6 @@ extension CognitoIdp {
     public struct ListUserPoolsRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: true, type: .integer)
-        ]
         /// An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
         public let nextToken: String?
         /// The maximum number of results you want the request to return when listing the user pools.
@@ -482,13 +414,6 @@ extension CognitoIdp {
     public struct UpdateGroupRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "Precedence", required: false, type: .integer), 
-            AWSShapeProperty(label: "GroupName", required: true, type: .string), 
-            AWSShapeProperty(label: "RoleArn", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// A string containing the new description of the group.
         public let description: String?
         /// The new precedence value for the group. For more information about this parameter, see CreateGroupRequest.
@@ -522,12 +447,6 @@ extension CognitoIdp {
     public struct InitiateAuthResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ChallengeName", required: false, type: .enum), 
-            AWSShapeProperty(label: "ChallengeParameters", required: false, type: .map), 
-            AWSShapeProperty(label: "AuthenticationResult", required: false, type: .structure), 
-            AWSShapeProperty(label: "Session", required: false, type: .string)
-        ]
         /// The name of the challenge.
         public let challengeName: ChallengeNameType?
         /// The challenge parameters.
@@ -559,10 +478,6 @@ extension CognitoIdp {
     public struct DeleteUserAttributesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserAttributeNames", required: true, type: .list), 
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// An array of strings representing the user attribute names you wish to delete.
         public let userAttributeNames: [String]
         /// The access token used in the request to delete user attributes.
@@ -583,10 +498,6 @@ extension CognitoIdp {
     public struct StartUserImportJobRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "JobId", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The job ID for the user import job.
         public let jobId: String
         /// The user pool ID for the user pool that the users are being imported into.
@@ -608,9 +519,6 @@ extension CognitoIdp {
     public struct GetUserRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// The access token returned by the server response to get information about the user.
         public let accessToken: String?
 
@@ -626,10 +534,6 @@ extension CognitoIdp {
     public struct DeleteUserPoolClientRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The ID of the client associated with the user pool.
         public let clientId: String
         /// The user pool ID for the user pool where you want to delete the client.
@@ -651,11 +555,6 @@ extension CognitoIdp {
     public struct UpdateDeviceStatusRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DeviceKey", required: true, type: .string), 
-            AWSShapeProperty(label: "DeviceRememberedStatus", required: false, type: .enum), 
-            AWSShapeProperty(label: "AccessToken", required: true, type: .string)
-        ]
         /// The device key.
         public let deviceKey: String
         /// The status of whether a device is remembered.
@@ -681,11 +580,6 @@ extension CognitoIdp {
     public struct AdminRemoveUserFromGroupRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Username", required: true, type: .string), 
-            AWSShapeProperty(label: "GroupName", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The username for the user.
         public let username: String
         /// The group name.
@@ -712,11 +606,6 @@ extension CognitoIdp {
     public struct AdminDeleteUserAttributesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "UserAttributeNames", required: true, type: .list), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The user pool ID for the user pool where you want to delete user attributes.
         public let userPoolId: String
         /// An array of strings representing the user attribute names you wish to delete.
@@ -743,11 +632,6 @@ extension CognitoIdp {
     public struct UserPoolClientDescription: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ClientName", required: false, type: .string), 
-            AWSShapeProperty(label: "ClientId", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: false, type: .string)
-        ]
         /// The client name from the user pool client description.
         public let clientName: String?
         /// The ID of the client associated with the user pool.
@@ -771,10 +655,6 @@ extension CognitoIdp {
     public struct DeviceSecretVerifierConfigType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Salt", required: false, type: .string), 
-            AWSShapeProperty(label: "PasswordVerifier", required: false, type: .string)
-        ]
         /// The salt.
         public let salt: String?
         /// The password verifier.
@@ -794,10 +674,6 @@ extension CognitoIdp {
     public struct ListUserImportJobsResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PaginationToken", required: false, type: .string), 
-            AWSShapeProperty(label: "UserImportJobs", required: false, type: .list)
-        ]
         /// An identifier that can be used to return the next set of user import jobs in the list.
         public let paginationToken: String?
         /// The user import jobs.
@@ -821,12 +697,6 @@ extension CognitoIdp {
     public struct RespondToAuthChallengeResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ChallengeName", required: false, type: .enum), 
-            AWSShapeProperty(label: "ChallengeParameters", required: false, type: .map), 
-            AWSShapeProperty(label: "AuthenticationResult", required: false, type: .structure), 
-            AWSShapeProperty(label: "Session", required: false, type: .string)
-        ]
         /// The challenge name.
         public let challengeName: ChallengeNameType?
         /// The challenge parameters.
@@ -858,9 +728,6 @@ extension CognitoIdp {
     public struct CreateUserPoolClientResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolClient", required: false, type: .structure)
-        ]
         /// The user pool client that was just created.
         public let userPoolClient: UserPoolClientType?
 
@@ -876,10 +743,6 @@ extension CognitoIdp {
     public struct ListGroupsResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Groups", required: false, type: .list)
-        ]
         /// An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
         public let nextToken: String?
         /// The group objects for the groups.
@@ -903,13 +766,6 @@ extension CognitoIdp {
     public struct AdminInitiateAuthRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ClientMetadata", required: false, type: .map), 
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "AuthParameters", required: false, type: .map), 
-            AWSShapeProperty(label: "AuthFlow", required: true, type: .enum), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The client app metadata.
         public let clientMetadata: [String: String]?
         /// The client app ID.
@@ -952,9 +808,6 @@ extension CognitoIdp {
     public struct UpdateUserPoolClientResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolClient", required: false, type: .structure)
-        ]
         /// The user pool client value from the response from the server when an update user pool client request is made.
         public let userPoolClient: UserPoolClientType?
 
@@ -970,10 +823,6 @@ extension CognitoIdp {
     public struct DescribeUserImportJobRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "JobId", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The job ID for the user import job.
         public let jobId: String
         /// The user pool ID for the user pool that the users are being imported into.
@@ -1007,9 +856,6 @@ extension CognitoIdp {
     public struct DeleteUserRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// The access token from a request to delete a user.
         public let accessToken: String?
 
@@ -1025,9 +871,6 @@ extension CognitoIdp {
     public struct GlobalSignOutRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// The access token.
         public let accessToken: String?
 
@@ -1043,15 +886,6 @@ extension CognitoIdp {
     public struct CreateUserPoolClientRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ClientName", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "WriteAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "RefreshTokenValidity", required: false, type: .integer), 
-            AWSShapeProperty(label: "ReadAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "ExplicitAuthFlows", required: false, type: .list), 
-            AWSShapeProperty(label: "GenerateSecret", required: false, type: .boolean)
-        ]
         /// The client name for the user pool client you would like to create.
         public let clientName: String
         /// The user pool ID for the user pool where you want to create a user pool client.
@@ -1093,10 +927,6 @@ extension CognitoIdp {
     public struct AttributeType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: true, type: .string)
-        ]
         /// The value of the attribute.
         public let value: String?
         /// The name of the attribute.
@@ -1132,18 +962,6 @@ extension CognitoIdp {
     public struct UserPoolClientType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ClientName", required: false, type: .string), 
-            AWSShapeProperty(label: "RefreshTokenValidity", required: false, type: .integer), 
-            AWSShapeProperty(label: "WriteAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "ReadAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "ClientId", required: false, type: .string), 
-            AWSShapeProperty(label: "CreationDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "LastModifiedDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "ExplicitAuthFlows", required: false, type: .list), 
-            AWSShapeProperty(label: "ClientSecret", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: false, type: .string)
-        ]
         /// The client name from the user pool request of the client type.
         public let clientName: String?
         /// The validity of the refresh token, in days.
@@ -1195,11 +1013,6 @@ extension CognitoIdp {
     public struct CreateUserImportJobRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "JobName", required: true, type: .string), 
-            AWSShapeProperty(label: "CloudWatchLogsRoleArn", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The job name for the user import job.
         public let jobName: String
         /// The role ARN for the Amazon CloudWatch Logging role for the user import job.
@@ -1226,15 +1039,6 @@ extension CognitoIdp {
     public struct SchemaAttributeType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NumberAttributeConstraints", required: false, type: .structure), 
-            AWSShapeProperty(label: "DeveloperOnlyAttribute", required: false, type: .boolean), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "AttributeDataType", required: false, type: .enum), 
-            AWSShapeProperty(label: "StringAttributeConstraints", required: false, type: .structure), 
-            AWSShapeProperty(label: "Required", required: false, type: .boolean), 
-            AWSShapeProperty(label: "Mutable", required: false, type: .boolean)
-        ]
         /// Specifies the constraints for an attribute of the number type.
         public let numberAttributeConstraints: NumberAttributeConstraintsType?
         /// Specifies whether the attribute type is developer only.
@@ -1274,13 +1078,6 @@ extension CognitoIdp {
     public struct ConfirmForgotPasswordRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "ConfirmationCode", required: true, type: .string), 
-            AWSShapeProperty(label: "Password", required: true, type: .string), 
-            AWSShapeProperty(label: "SecretHash", required: false, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The ID of the client associated with the user pool.
         public let clientId: String
         /// The confirmation code sent by a user's request to retrieve a forgotten password.
@@ -1316,13 +1113,6 @@ extension CognitoIdp {
     public struct ConfirmSignUpRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ForceAliasCreation", required: false, type: .boolean), 
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "ConfirmationCode", required: true, type: .string), 
-            AWSShapeProperty(label: "SecretHash", required: false, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an AliasExistsException error.
         public let forceAliasCreation: Bool?
         /// The ID of the client associated with the user pool.
@@ -1357,15 +1147,6 @@ extension CognitoIdp {
     public struct GroupType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: false, type: .string), 
-            AWSShapeProperty(label: "GroupName", required: false, type: .string), 
-            AWSShapeProperty(label: "LastModifiedDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "CreationDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "Precedence", required: false, type: .integer), 
-            AWSShapeProperty(label: "RoleArn", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The user pool ID for the user pool.
         public let userPoolId: String?
         /// The name of the group.
@@ -1414,9 +1195,6 @@ extension CognitoIdp {
     public struct StopUserImportJobResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserImportJob", required: false, type: .structure)
-        ]
         /// The job object that represents the user import job.
         public let userImportJob: UserImportJobType?
 
@@ -1432,10 +1210,6 @@ extension CognitoIdp {
     public struct AdminEnableUserRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The user pool ID for the user pool where you want to enable the user.
         public let userPoolId: String
         /// The user name of the user you wish to ebable.
@@ -1457,11 +1231,6 @@ extension CognitoIdp {
     public struct ForgotPasswordRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SecretHash", required: false, type: .string), 
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
         public let secretHash: String?
         /// The ID of the client associated with the user pool.
@@ -1487,12 +1256,6 @@ extension CognitoIdp {
     public struct AdminListDevicesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Username", required: true, type: .string), 
-            AWSShapeProperty(label: "PaginationToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Limit", required: false, type: .integer), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The user name.
         public let username: String
         /// The pagination token.
@@ -1541,10 +1304,6 @@ extension CognitoIdp {
     public struct GetUserAttributeVerificationCodeRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttributeName", required: true, type: .string), 
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// The attribute name returned by the server response to get the user attribute verification code.
         public let attributeName: String
         /// The access token returned by the server response to get the user attribute verification code.
@@ -1565,12 +1324,6 @@ extension CognitoIdp {
     public struct AdminInitiateAuthResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ChallengeName", required: false, type: .enum), 
-            AWSShapeProperty(label: "ChallengeParameters", required: false, type: .map), 
-            AWSShapeProperty(label: "AuthenticationResult", required: false, type: .structure), 
-            AWSShapeProperty(label: "Session", required: false, type: .string)
-        ]
         /// The name of the challenge.
         public let challengeName: ChallengeNameType?
         /// The challenge parameters.
@@ -1602,10 +1355,6 @@ extension CognitoIdp {
     public struct AdminDeleteUserRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The user pool ID for the user pool where you want to delete the user.
         public let userPoolId: String
         /// The user name of the user you wish to delete.
@@ -1627,10 +1376,6 @@ extension CognitoIdp {
     public struct GetGroupRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "GroupName", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The name of the group.
         public let groupName: String
         /// The user pool ID for the user pool.
@@ -1652,11 +1397,6 @@ extension CognitoIdp {
     public struct ListUserImportJobsRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "PaginationToken", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: true, type: .integer)
-        ]
         /// The user pool ID for the user pool that the users are being imported into.
         public let userPoolId: String
         /// An identifier that was returned from the previous call to ListUserImportJobs, which can be used to return the next set of import jobs in the list.
@@ -1682,10 +1422,6 @@ extension CognitoIdp {
     public struct AdminResetUserPasswordRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The user pool ID for the user pool where you want to reset the user's password.
         public let userPoolId: String
         /// The user name of the user whose password you wish to reset.
@@ -1707,11 +1443,6 @@ extension CognitoIdp {
     public struct ChangePasswordRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PreviousPassword", required: true, type: .string), 
-            AWSShapeProperty(label: "ProposedPassword", required: true, type: .string), 
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// The old password in the change password request.
         public let previousPassword: String
         /// The new password in the change password request.
@@ -1737,14 +1468,6 @@ extension CognitoIdp {
     public struct UserPoolDescriptionType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "LastModifiedDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "CreationDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "LambdaConfig", required: false, type: .structure), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: false, type: .string)
-        ]
         /// The last modified date in a user pool description.
         public let lastModifiedDate: Date?
         /// The creation date in a user pool description.
@@ -1780,10 +1503,6 @@ extension CognitoIdp {
     public struct DeviceConfigurationType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DeviceOnlyRememberedOnUserPrompt", required: false, type: .boolean), 
-            AWSShapeProperty(label: "ChallengeRequiredOnNewDevice", required: false, type: .boolean)
-        ]
         /// If true, a device is only remembered on user prompt.
         public let deviceOnlyRememberedOnUserPrompt: Bool?
         /// Indicates whether a challenge is required on a new device. Only applicable to a new device.
@@ -1803,10 +1522,6 @@ extension CognitoIdp {
     public struct ListUserPoolsResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPools", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The user pools from the response to list users.
         public let userPools: [UserPoolDescriptionType]?
         /// An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
@@ -1830,15 +1545,6 @@ extension CognitoIdp {
     public struct AdminGetUserResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserStatus", required: false, type: .enum), 
-            AWSShapeProperty(label: "Enabled", required: false, type: .boolean), 
-            AWSShapeProperty(label: "Username", required: true, type: .string), 
-            AWSShapeProperty(label: "UserCreateDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "MFAOptions", required: false, type: .list), 
-            AWSShapeProperty(label: "UserLastModifiedDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "UserAttributes", required: false, type: .list)
-        ]
         /// The user status. Can be one of the following:   UNCONFIRMED - User has been created but not confirmed.   CONFIRMED - User has been confirmed.   ARCHIVED - User is no longer active.   COMPROMISED - User is disabled due to a potential security threat.   UNKNOWN - User status is not known.  
         public let userStatus: UserStatusType?
         /// Indicates that the status is enabled.
@@ -1887,12 +1593,6 @@ extension CognitoIdp {
     public struct ListUsersInGroupRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "GroupName", required: true, type: .string), 
-            AWSShapeProperty(label: "Limit", required: false, type: .integer), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The name of the group.
         public let groupName: String
         /// The limit of the request to list users.
@@ -1922,13 +1622,6 @@ extension CognitoIdp {
     public struct CreateGroupRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "Precedence", required: false, type: .integer), 
-            AWSShapeProperty(label: "GroupName", required: true, type: .string), 
-            AWSShapeProperty(label: "RoleArn", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// A string containing the description of the group.
         public let description: String?
         /// A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower Precedence values take precedence over groups with higher or null Precedence values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the cognito:roles and cognito:preferred_role claims in the user's tokens. Two groups can have the same Precedence value. If this happens, neither group takes precedence over the other. If two groups with the same Precedence have the same role ARN, that role is used in the cognito:preferred_role claim in tokens for users in each group. If the two groups have different role ARNs, the cognito:preferred_role claim is not set in users' tokens. The default Precedence value is null.
@@ -1962,11 +1655,6 @@ extension CognitoIdp {
     public struct MessageTemplateType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SMSMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "EmailMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "EmailSubject", required: false, type: .string)
-        ]
         /// The message template for SMS messages.
         public let sMSMessage: String?
         /// The message template for email messages.
@@ -1990,9 +1678,6 @@ extension CognitoIdp {
     public struct ConfirmDeviceResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserConfirmationNecessary", required: false, type: .boolean)
-        ]
         /// Indicates whether the user confirmation is necessary to confirm the device response.
         public let userConfirmationNecessary: Bool?
 
@@ -2008,9 +1693,6 @@ extension CognitoIdp {
     public struct StartUserImportJobResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserImportJob", required: false, type: .structure)
-        ]
         /// The job object that represents the user import job.
         public let userImportJob: UserImportJobType?
 
@@ -2026,10 +1708,6 @@ extension CognitoIdp {
     public struct AdminDisableUserRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The user pool ID for the user pool where you want to disable the user.
         public let userPoolId: String
         /// The user name of the user you wish to disable.
@@ -2051,10 +1729,6 @@ extension CognitoIdp {
     public struct UpdateUserAttributesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserAttributes", required: true, type: .list), 
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// An array of name-value pairs representing user attributes.
         public let userAttributes: [AttributeType]
         /// The access token for the request to update user attributes.
@@ -2075,10 +1749,6 @@ extension CognitoIdp {
     public struct MFAOptionType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttributeName", required: false, type: .string), 
-            AWSShapeProperty(label: "DeliveryMedium", required: false, type: .enum)
-        ]
         /// The attribute name of the MFA option type.
         public let attributeName: String?
         /// The delivery medium (email message or SMS message) to send the MFA code.
@@ -2106,9 +1776,6 @@ extension CognitoIdp {
     public struct DescribeUserPoolRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The user pool ID for the user pool you want to describe.
         public let userPoolId: String
 
@@ -2125,11 +1792,6 @@ extension CognitoIdp {
     public struct GetUserResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserAttributes", required: true, type: .list), 
-            AWSShapeProperty(label: "MFAOptions", required: false, type: .list), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// An array of name-value pairs representing user attributes.
         public let userAttributes: [AttributeType]
         /// Specifies the options for MFA (e.g., email or phone number).
@@ -2173,12 +1835,6 @@ extension CognitoIdp {
     public struct AdminRespondToAuthChallengeResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ChallengeName", required: false, type: .enum), 
-            AWSShapeProperty(label: "ChallengeParameters", required: false, type: .map), 
-            AWSShapeProperty(label: "AuthenticationResult", required: false, type: .structure), 
-            AWSShapeProperty(label: "Session", required: false, type: .string)
-        ]
         /// The name of the challenge.
         public let challengeName: ChallengeNameType?
         /// The challenge parameters.
@@ -2210,15 +1866,6 @@ extension CognitoIdp {
     public struct UpdateUserPoolClientRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ClientName", required: false, type: .string), 
-            AWSShapeProperty(label: "RefreshTokenValidity", required: false, type: .integer), 
-            AWSShapeProperty(label: "WriteAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "ReadAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "ExplicitAuthFlows", required: false, type: .list), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The client name from the update user pool client request.
         public let clientName: String?
         /// The validity of the refresh token, in days.
@@ -2260,13 +1907,6 @@ extension CognitoIdp {
     public struct DeviceType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DeviceKey", required: false, type: .string), 
-            AWSShapeProperty(label: "DeviceLastModifiedDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "DeviceAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "DeviceCreateDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "DeviceLastAuthenticatedDate", required: false, type: .timestamp)
-        ]
         /// The device key.
         public let deviceKey: String?
         /// The last modified date of the device.
@@ -2316,11 +1956,6 @@ extension CognitoIdp {
     public struct AdminUpdateUserAttributesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Username", required: true, type: .string), 
-            AWSShapeProperty(label: "UserAttributes", required: true, type: .list), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The user name of the user for whom you want to update user attributes.
         public let username: String
         /// An array of name-value pairs representing user attributes.
@@ -2347,10 +1982,6 @@ extension CognitoIdp {
     public struct SmsConfigurationType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ExternalId", required: false, type: .string), 
-            AWSShapeProperty(label: "SnsCallerArn", required: true, type: .string)
-        ]
         /// The external ID.
         public let externalId: String?
         /// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
@@ -2371,11 +2002,6 @@ extension CognitoIdp {
     public struct CodeDeliveryDetailsType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttributeName", required: false, type: .string), 
-            AWSShapeProperty(label: "Destination", required: false, type: .string), 
-            AWSShapeProperty(label: "DeliveryMedium", required: false, type: .enum)
-        ]
         /// The name of the attribute in the code delivery details type.
         public let attributeName: String?
         /// The destination for the code delivery details.
@@ -2399,10 +2025,6 @@ extension CognitoIdp {
     public struct GetCSVHeaderResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "CSVHeader", required: false, type: .list), 
-            AWSShapeProperty(label: "UserPoolId", required: false, type: .string)
-        ]
         /// The header information for the .csv file for the user import job.
         public let cSVHeader: [String]?
         /// The user pool ID for the user pool that the users are to be imported into.
@@ -2430,10 +2052,6 @@ extension CognitoIdp {
     public struct AdminConfirmSignUpRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The user pool ID for which you want to confirm user registration.
         public let userPoolId: String
         /// The user name for which you want to confirm user registration.
@@ -2455,10 +2073,6 @@ extension CognitoIdp {
     public struct ForgetDeviceRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DeviceKey", required: true, type: .string), 
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// The device key.
         public let deviceKey: String
         /// The access token for the forgotten device request.
@@ -2479,10 +2093,6 @@ extension CognitoIdp {
     public struct ListUsersResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Users", required: false, type: .list), 
-            AWSShapeProperty(label: "PaginationToken", required: false, type: .string)
-        ]
         /// The users returned in the request to list users.
         public let users: [UserType]?
         /// An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
@@ -2506,31 +2116,6 @@ extension CognitoIdp {
     public struct UserPoolType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "EmailConfigurationFailure", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolTags", required: false, type: .map), 
-            AWSShapeProperty(label: "EmailVerificationSubject", required: false, type: .string), 
-            AWSShapeProperty(label: "AdminCreateUserConfig", required: false, type: .structure), 
-            AWSShapeProperty(label: "EstimatedNumberOfUsers", required: false, type: .integer), 
-            AWSShapeProperty(label: "AliasAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "SchemaAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "SmsConfigurationFailure", required: false, type: .string), 
-            AWSShapeProperty(label: "LambdaConfig", required: false, type: .structure), 
-            AWSShapeProperty(label: "Policies", required: false, type: .structure), 
-            AWSShapeProperty(label: "MfaConfiguration", required: false, type: .enum), 
-            AWSShapeProperty(label: "CreationDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "Id", required: false, type: .string), 
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "SmsConfiguration", required: false, type: .structure), 
-            AWSShapeProperty(label: "SmsVerificationMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "SmsAuthenticationMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "EmailConfiguration", required: false, type: .structure), 
-            AWSShapeProperty(label: "EmailVerificationMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "LastModifiedDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "AutoVerifiedAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "DeviceConfiguration", required: false, type: .structure)
-        ]
         /// The reason why the email configuration cannot send the messages to your users.
         public let emailConfigurationFailure: String?
         /// The cost allocation tags for the user pool. For more information, see Adding Cost Allocation Tags to Your User Pool 
@@ -2642,10 +2227,6 @@ extension CognitoIdp {
     public struct GetDeviceRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DeviceKey", required: true, type: .string), 
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// The device key.
         public let deviceKey: String
         /// The access token.
@@ -2666,10 +2247,6 @@ extension CognitoIdp {
     public struct ListDevicesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PaginationToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Devices", required: false, type: .list)
-        ]
         /// The pagination token for the list device response.
         public let paginationToken: String?
         /// The devices returned in the list devices response.
@@ -2693,9 +2270,6 @@ extension CognitoIdp {
     public struct CreateUserPoolResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPool", required: false, type: .structure)
-        ]
         /// A container for the user pool details.
         public let userPool: UserPoolType?
 
@@ -2711,9 +2285,6 @@ extension CognitoIdp {
     public struct ResendConfirmationCodeResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "CodeDeliveryDetails", required: false, type: .structure)
-        ]
         /// The code delivery details returned by the server in response to the request to resend the confirmation code.
         public let codeDeliveryDetails: CodeDeliveryDetailsType?
 
@@ -2737,9 +2308,6 @@ extension CognitoIdp {
     public struct CreateUserImportJobResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserImportJob", required: false, type: .structure)
-        ]
         /// The job object that represents the user import job.
         public let userImportJob: UserImportJobType?
 
@@ -2755,12 +2323,6 @@ extension CognitoIdp {
     public struct RespondToAuthChallengeRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ChallengeName", required: true, type: .enum), 
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "Session", required: false, type: .string), 
-            AWSShapeProperty(label: "ChallengeResponses", required: false, type: .map)
-        ]
         /// The name of the challenge.
         public let challengeName: ChallengeNameType
         /// The client ID.
@@ -2802,22 +2364,6 @@ extension CognitoIdp {
     public struct UpdateUserPoolRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolTags", required: false, type: .map), 
-            AWSShapeProperty(label: "EmailVerificationSubject", required: false, type: .string), 
-            AWSShapeProperty(label: "AdminCreateUserConfig", required: false, type: .structure), 
-            AWSShapeProperty(label: "Policies", required: false, type: .structure), 
-            AWSShapeProperty(label: "LambdaConfig", required: false, type: .structure), 
-            AWSShapeProperty(label: "MfaConfiguration", required: false, type: .enum), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "EmailConfiguration", required: false, type: .structure), 
-            AWSShapeProperty(label: "SmsVerificationMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "SmsAuthenticationMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "EmailVerificationMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "SmsConfiguration", required: false, type: .structure), 
-            AWSShapeProperty(label: "AutoVerifiedAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "DeviceConfiguration", required: false, type: .structure)
-        ]
         /// The cost allocation tags for the user pool. For more information, see Adding Cost Allocation Tags to Your User Pool 
         public let userPoolTags: [String: String]?
         /// The subject of the email verfication message.
@@ -2890,16 +2436,6 @@ extension CognitoIdp {
     public struct LambdaConfigType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PostAuthentication", required: false, type: .string), 
-            AWSShapeProperty(label: "CustomMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "PreSignUp", required: false, type: .string), 
-            AWSShapeProperty(label: "VerifyAuthChallengeResponse", required: false, type: .string), 
-            AWSShapeProperty(label: "DefineAuthChallenge", required: false, type: .string), 
-            AWSShapeProperty(label: "CreateAuthChallenge", required: false, type: .string), 
-            AWSShapeProperty(label: "PreAuthentication", required: false, type: .string), 
-            AWSShapeProperty(label: "PostConfirmation", required: false, type: .string)
-        ]
         /// A post-authentication AWS Lambda trigger.
         public let postAuthentication: String?
         /// A custom Message AWS Lambda trigger.
@@ -2951,11 +2487,6 @@ extension CognitoIdp {
     public struct ListGroupsRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Limit", required: false, type: .integer), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The limit of the request to list groups.
         public let limit: Int32?
         /// An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
@@ -2980,10 +2511,6 @@ extension CognitoIdp {
     public struct SetUserSettingsRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MFAOptions", required: true, type: .list), 
-            AWSShapeProperty(label: "AccessToken", required: true, type: .string)
-        ]
         /// Specifies the options for MFA (e.g., email or phone number).
         public let mFAOptions: [MFAOptionType]
         /// The access token for the set user settings request.
@@ -3005,10 +2532,6 @@ extension CognitoIdp {
     public struct AdminGetUserRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The user pool ID for the user pool where you want to get information about the user.
         public let userPoolId: String
         /// The user name of the user you wish to retrieve.
@@ -3036,9 +2559,6 @@ extension CognitoIdp {
     public struct GetGroupResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Group", required: false, type: .structure)
-        ]
         /// The group object for the group.
         public let group: GroupType?
 
@@ -3054,14 +2574,6 @@ extension CognitoIdp {
     public struct AuthenticationResultType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ExpiresIn", required: false, type: .integer), 
-            AWSShapeProperty(label: "NewDeviceMetadata", required: false, type: .structure), 
-            AWSShapeProperty(label: "IdToken", required: false, type: .string), 
-            AWSShapeProperty(label: "TokenType", required: false, type: .string), 
-            AWSShapeProperty(label: "RefreshToken", required: false, type: .string), 
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// The expiration period of the authentication result.
         public let expiresIn: Int32?
         /// The new device metadata from an authentication result.
@@ -3097,11 +2609,6 @@ extension CognitoIdp {
     public struct AdminCreateUserConfigType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AllowAdminCreateUserOnly", required: false, type: .boolean), 
-            AWSShapeProperty(label: "UnusedAccountValidityDays", required: false, type: .integer), 
-            AWSShapeProperty(label: "InviteMessageTemplate", required: false, type: .structure)
-        ]
         /// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
         public let allowAdminCreateUserOnly: Bool?
         /// The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter. The default value for this paameter is 7.
@@ -3125,10 +2632,6 @@ extension CognitoIdp {
     public struct StringAttributeConstraintsType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MinLength", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxLength", required: false, type: .string)
-        ]
         /// The minimum length of an attribute value of the string type.
         public let minLength: String?
         /// The maximum length of an attribute value of the string type.
@@ -3148,9 +2651,6 @@ extension CognitoIdp {
     public struct UserPoolPolicyType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PasswordPolicy", required: false, type: .structure)
-        ]
         /// A container with information about the user pool password policy.
         public let passwordPolicy: PasswordPolicyType?
 
@@ -3166,9 +2666,6 @@ extension CognitoIdp {
     public struct ForgotPasswordResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "CodeDeliveryDetails", required: false, type: .structure)
-        ]
         /// The code delivery details returned by the server in response to the request to reset a password.
         public let codeDeliveryDetails: CodeDeliveryDetailsType?
 
@@ -3184,9 +2681,6 @@ extension CognitoIdp {
     public struct CreateGroupResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Group", required: false, type: .structure)
-        ]
         /// The group object for the group.
         public let group: GroupType?
 
@@ -3223,10 +2717,6 @@ extension CognitoIdp {
     public struct NewDeviceMetadataType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DeviceGroupKey", required: false, type: .string), 
-            AWSShapeProperty(label: "DeviceKey", required: false, type: .string)
-        ]
         /// The device group key.
         public let deviceGroupKey: String?
         /// The device key.
@@ -3246,10 +2736,6 @@ extension CognitoIdp {
     public struct DescribeUserPoolClientRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The ID of the client associated with the user pool.
         public let clientId: String
         /// The user pool ID for the user pool you want to describe.
@@ -3271,10 +2757,6 @@ extension CognitoIdp {
     public struct SignUpResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "CodeDeliveryDetails", required: false, type: .structure), 
-            AWSShapeProperty(label: "UserConfirmed", required: false, type: .boolean)
-        ]
         /// The code delivery details returned by the server response to the user registration request.
         public let codeDeliveryDetails: CodeDeliveryDetailsType?
         /// A response from the server indicating that a user registration has been confirmed.
@@ -3294,9 +2776,6 @@ extension CognitoIdp {
     public struct UpdateGroupResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Group", required: false, type: .structure)
-        ]
         /// The group object for the group.
         public let group: GroupType?
 
@@ -3337,11 +2816,6 @@ extension CognitoIdp {
     public struct AdminSetUserSettingsRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "MFAOptions", required: true, type: .list), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The user pool ID for the user pool where you want to set the user's settings, such as MFA options.
         public let userPoolId: String
         /// Specifies the options for MFA (e.g., email or phone number).
@@ -3384,10 +2858,6 @@ extension CognitoIdp {
     public struct StopUserImportJobRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "JobId", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The job ID for the user import job.
         public let jobId: String
         /// The user pool ID for the user pool that the users are being imported into.
@@ -3409,9 +2879,6 @@ extension CognitoIdp {
     public struct GetCSVHeaderRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The user pool ID for the user pool that the users are to be imported into.
         public let userPoolId: String
 
@@ -3428,11 +2895,6 @@ extension CognitoIdp {
     public struct ResendConfirmationCodeRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SecretHash", required: false, type: .string), 
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
         public let secretHash: String?
         /// The ID of the client associated with the user pool.
@@ -3458,9 +2920,6 @@ extension CognitoIdp {
     public struct DescribeUserPoolResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPool", required: false, type: .structure)
-        ]
         /// The container of metadata returned by the server to describe the pool.
         public let userPool: UserPoolType?
 
@@ -3476,10 +2935,6 @@ extension CognitoIdp {
     public struct AddCustomAttributesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "CustomAttributes", required: true, type: .list), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// An array of custom attributes, such as Mutable and Name.
         public let customAttributes: [SchemaAttributeType]
         /// The user pool ID for the user pool where you want to add custom attributes.
@@ -3501,9 +2956,6 @@ extension CognitoIdp {
     public struct UpdateUserAttributesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "CodeDeliveryDetailsList", required: false, type: .list)
-        ]
         /// The code delivery details list from the server for the request to update user attributes.
         public let codeDeliveryDetailsList: [CodeDeliveryDetailsType]?
 
@@ -3523,21 +2975,6 @@ extension CognitoIdp {
     public struct UserImportJobType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "CompletionDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "CompletionMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "FailedUsers", required: false, type: .long), 
-            AWSShapeProperty(label: "SkippedUsers", required: false, type: .long), 
-            AWSShapeProperty(label: "CreationDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "JobId", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: false, type: .string), 
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "PreSignedUrl", required: false, type: .string), 
-            AWSShapeProperty(label: "StartDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "CloudWatchLogsRoleArn", required: false, type: .string), 
-            AWSShapeProperty(label: "JobName", required: false, type: .string), 
-            AWSShapeProperty(label: "ImportedUsers", required: false, type: .long)
-        ]
         /// The date when the user imoprt job was completed.
         public let completionDate: Date?
         /// The message returned when the user import job is completed.
@@ -3617,12 +3054,6 @@ extension CognitoIdp {
     public struct ConfirmDeviceRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DeviceKey", required: true, type: .string), 
-            AWSShapeProperty(label: "DeviceSecretVerifierConfig", required: false, type: .structure), 
-            AWSShapeProperty(label: "DeviceName", required: false, type: .string), 
-            AWSShapeProperty(label: "AccessToken", required: true, type: .string)
-        ]
         /// The device key.
         public let deviceKey: String
         /// The configuration of the device secret verifier.
@@ -3652,16 +3083,6 @@ extension CognitoIdp {
     public struct AdminCreateUserRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ForceAliasCreation", required: false, type: .boolean), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "DesiredDeliveryMediums", required: false, type: .list), 
-            AWSShapeProperty(label: "MessageAction", required: false, type: .enum), 
-            AWSShapeProperty(label: "ValidationData", required: false, type: .list), 
-            AWSShapeProperty(label: "Username", required: true, type: .string), 
-            AWSShapeProperty(label: "TemporaryPassword", required: false, type: .string), 
-            AWSShapeProperty(label: "UserAttributes", required: false, type: .list)
-        ]
         /// This parameter is only used if the phone_number_verified or email_verified attribute is set to True. Otherwise, it is ignored. If this parameter is set to True and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. If this parameter is set to False, the API throws an AliasExistsException error if the alias already exists. The default value is False.
         public let forceAliasCreation: Bool?
         /// The user pool ID for the user pool where the user will be created.
@@ -3715,10 +3136,6 @@ extension CognitoIdp {
     public struct AdminListGroupsForUserResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Groups", required: false, type: .list)
-        ]
         /// An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
         public let nextToken: String?
         /// The groups that the user belongs to.
@@ -3742,10 +3159,6 @@ extension CognitoIdp {
     public struct AdminListDevicesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PaginationToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Devices", required: false, type: .list)
-        ]
         /// The pagination token.
         public let paginationToken: String?
         /// The devices in the list of devices response.
@@ -3769,13 +3182,6 @@ extension CognitoIdp {
     public struct PasswordPolicyType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MinimumLength", required: false, type: .integer), 
-            AWSShapeProperty(label: "RequireLowercase", required: false, type: .boolean), 
-            AWSShapeProperty(label: "RequireSymbols", required: false, type: .boolean), 
-            AWSShapeProperty(label: "RequireUppercase", required: false, type: .boolean), 
-            AWSShapeProperty(label: "RequireNumbers", required: false, type: .boolean)
-        ]
         /// The minimum length of the password policy that you have set. Cannot be less than 6.
         public let minimumLength: Int32?
         /// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
@@ -3807,15 +3213,6 @@ extension CognitoIdp {
     public struct UserType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserStatus", required: false, type: .enum), 
-            AWSShapeProperty(label: "Enabled", required: false, type: .boolean), 
-            AWSShapeProperty(label: "Username", required: false, type: .string), 
-            AWSShapeProperty(label: "UserCreateDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "Attributes", required: false, type: .list), 
-            AWSShapeProperty(label: "UserLastModifiedDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "MFAOptions", required: false, type: .list)
-        ]
         /// The user status. Can be one of the following:   UNCONFIRMED - User has been created but not confirmed.   CONFIRMED - User has been confirmed.   ARCHIVED - User is no longer active.   COMPROMISED - User is disabled due to a potential security threat.   UNKNOWN - User status is not known.  
         public let userStatus: UserStatusType?
         /// Specifies whether the user is enabled.
@@ -3863,13 +3260,6 @@ extension CognitoIdp {
     public struct ListUsersRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttributesToGet", required: false, type: .list), 
-            AWSShapeProperty(label: "PaginationToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Limit", required: false, type: .integer), 
-            AWSShapeProperty(label: "Filter", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The attributes to get from the request to list users.
         public let attributesToGet: [String]?
         /// An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
@@ -3902,9 +3292,6 @@ extension CognitoIdp {
     public struct GetDeviceResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Device", required: true, type: .structure)
-        ]
         /// The device.
         public let device: DeviceType
 
@@ -3921,9 +3308,6 @@ extension CognitoIdp {
     public struct AdminGetDeviceResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Device", required: true, type: .structure)
-        ]
         /// The device.
         public let device: DeviceType
 
@@ -3940,12 +3324,6 @@ extension CognitoIdp {
     public struct AdminUpdateDeviceStatusRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DeviceKey", required: true, type: .string), 
-            AWSShapeProperty(label: "DeviceRememberedStatus", required: false, type: .enum), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The device key.
         public let deviceKey: String
         /// The status indicating whether a device has been remembered or not.
@@ -3976,11 +3354,6 @@ extension CognitoIdp {
     public struct VerifyUserAttributeRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttributeName", required: true, type: .string), 
-            AWSShapeProperty(label: "Code", required: true, type: .string), 
-            AWSShapeProperty(label: "AccessToken", required: false, type: .string)
-        ]
         /// The attribute name in the request to verify user attributes.
         public let attributeName: String
         /// The verification code in the request to verify user attributes.
@@ -4014,11 +3387,6 @@ extension CognitoIdp {
     public struct AdminForgetDeviceRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DeviceKey", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The device key.
         public let deviceKey: String
         /// The user pool ID.
@@ -4045,11 +3413,6 @@ extension CognitoIdp {
     public struct AdminGetDeviceRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DeviceKey", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The device key.
         public let deviceKey: String
         /// The user name.
@@ -4076,12 +3439,6 @@ extension CognitoIdp {
     public struct InitiateAuthRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ClientMetadata", required: false, type: .map), 
-            AWSShapeProperty(label: "ClientId", required: true, type: .string), 
-            AWSShapeProperty(label: "AuthParameters", required: false, type: .map), 
-            AWSShapeProperty(label: "AuthFlow", required: true, type: .enum)
-        ]
         /// The client app's metadata.
         public let clientMetadata: [String: String]?
         /// The client ID.
@@ -4119,11 +3476,6 @@ extension CognitoIdp {
     public struct ListUserPoolClientsRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// The user pool ID for the user pool where you want to list user pool clients.
         public let userPoolId: String
         /// An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
@@ -4148,11 +3500,6 @@ extension CognitoIdp {
     public struct AdminAddUserToGroupRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Username", required: true, type: .string), 
-            AWSShapeProperty(label: "GroupName", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The username for the user.
         public let username: String
         /// The group name.
@@ -4179,10 +3526,6 @@ extension CognitoIdp {
     public struct EmailConfigurationType: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ReplyToEmailAddress", required: false, type: .string), 
-            AWSShapeProperty(label: "SourceArn", required: false, type: .string)
-        ]
         /// The REPLY-TO email address.
         public let replyToEmailAddress: String?
         /// The Amazon Resource Name (ARN) of the email source.
@@ -4202,10 +3545,6 @@ extension CognitoIdp {
     public struct AdminUserGlobalSignOutRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string), 
-            AWSShapeProperty(label: "Username", required: true, type: .string)
-        ]
         /// The user pool ID.
         public let userPoolId: String
         /// The user name.
@@ -4227,9 +3566,6 @@ extension CognitoIdp {
     public struct AdminCreateUserResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "User", required: false, type: .structure)
-        ]
         /// The user returned in the request to create a new user.
         public let user: UserType?
 
@@ -4245,10 +3581,6 @@ extension CognitoIdp {
     public struct ListUserPoolClientsResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "UserPoolClients", required: false, type: .list)
-        ]
         /// An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
         public let nextToken: String?
         /// The user pool clients in the response that lists user pool clients.
@@ -4272,10 +3604,6 @@ extension CognitoIdp {
     public struct DeleteGroupRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "GroupName", required: true, type: .string), 
-            AWSShapeProperty(label: "UserPoolId", required: true, type: .string)
-        ]
         /// The name of the group.
         public let groupName: String
         /// The user pool ID for the user pool.

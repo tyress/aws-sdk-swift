@@ -32,12 +32,6 @@ extension Clouddirectory {
     public struct FacetAttribute: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttributeDefinition", required: false, type: .structure), 
-            AWSShapeProperty(label: "AttributeReference", required: false, type: .structure), 
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "RequiredBehavior", required: false, type: .enum)
-        ]
         /// A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See Attribute References for more information.
         public let attributeDefinition: FacetAttributeDefinition?
         /// Attribute reference associated with the attribute. See Attribute References for more information.
@@ -66,10 +60,6 @@ extension Clouddirectory {
     public struct TagResourceRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ResourceArn", required: true, type: .string), 
-            AWSShapeProperty(label: "Tags", required: true, type: .list)
-        ]
         /// ARN of the resource. Tagging is only supported for directories.
         public let resourceArn: String
         /// List of tag key value pairs.
@@ -91,9 +81,6 @@ extension Clouddirectory {
     public struct UpdateSchemaResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaArn", required: false, type: .string)
-        ]
         /// ARN associated with the updated schema. For more information, see arns.
         public let schemaArn: String?
 
@@ -109,10 +96,6 @@ extension Clouddirectory {
     public struct Rule: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Type", required: false, type: .enum), 
-            AWSShapeProperty(label: "Parameters", required: false, type: .map)
-        ]
         /// The type of attribute validation rule.
         public let `type`: RuleType?
         /// Min and max parameters associated with the rule.
@@ -139,9 +122,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// The ARN of the directory.
         public let directoryArn: String
 
@@ -158,10 +138,6 @@ extension Clouddirectory {
     public struct ListObjectChildrenResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Children", required: false, type: .map)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// Children structure, which is a map with key as the LinkName and ObjectIdentifier as the value.
@@ -203,12 +179,6 @@ extension Clouddirectory {
     public struct TypedAttributeValueRange: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "EndValue", required: false, type: .structure), 
-            AWSShapeProperty(label: "EndMode", required: true, type: .enum), 
-            AWSShapeProperty(label: "StartValue", required: false, type: .structure), 
-            AWSShapeProperty(label: "StartMode", required: true, type: .enum)
-        ]
         /// The attribute value to terminate the range at.
         public let endValue: TypedAttributeValue?
         /// Inclusive or exclusive range end.
@@ -247,10 +217,6 @@ extension Clouddirectory {
     public struct GetSchemaAsJsonResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Document", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string)
-        ]
         /// The JSON representation of the schema document.
         public let document: String?
         /// The name of the retrieved schema.
@@ -273,12 +239,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "SchemaFacet", required: true, type: .structure), 
-            AWSShapeProperty(label: "ObjectAttributeList", required: false, type: .list), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// ARN associated with the Directory where the object resides. For more information, see arns.
         public let directoryArn: String
         /// Identifiers for the facet that you are adding to the object.
@@ -321,10 +281,6 @@ extension Clouddirectory {
     public struct ListDevelopmentSchemaArnsRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// The maximum number of results to retrieve.
@@ -344,12 +300,6 @@ extension Clouddirectory {
     public struct Directory: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "CreationDateTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "DirectoryArn", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "State", required: false, type: .enum)
-        ]
         /// The date and time when the directory was created.
         public let creationDateTime: Date?
         /// ARN associated with the directory. For more information, see arns.
@@ -377,10 +327,6 @@ extension Clouddirectory {
     public struct LookupPolicyResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PolicyToPathList", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// Provides list of path to policies. Policies contain PolicyId, ObjectIdentifier, and PolicyType.
         public let policyToPathList: [PolicyToPath]?
         /// The pagination token.
@@ -412,9 +358,6 @@ extension Clouddirectory {
     public struct CreateSchemaResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaArn", required: false, type: .string)
-        ]
         /// ARN associated with the schema. For more information, see arns.
         public let schemaArn: String?
 
@@ -433,11 +376,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaFacet", required: true, type: .structure), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// The facet to remove.
         public let schemaFacet: SchemaFacet
         /// A reference to the object to remove the facet from.
@@ -464,10 +402,6 @@ extension Clouddirectory {
     public struct ObjectAttributeRange: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Range", required: false, type: .structure), 
-            AWSShapeProperty(label: "AttributeKey", required: false, type: .structure)
-        ]
         /// The range of attribute values being selected.
         public let range: TypedAttributeValueRange?
         /// The key of the attribute the attribute range covers.
@@ -487,10 +421,6 @@ extension Clouddirectory {
     public struct Tag: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Key", required: false, type: .string)
-        ]
         /// Value associated with the tag.
         public let value: String?
         /// Key associated with the tag.
@@ -510,15 +440,6 @@ extension Clouddirectory {
     public struct BatchWriteOperationResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AddFacetToObject", required: false, type: .structure), 
-            AWSShapeProperty(label: "UpdateObjectAttributes", required: false, type: .structure), 
-            AWSShapeProperty(label: "DetachObject", required: false, type: .structure), 
-            AWSShapeProperty(label: "AttachObject", required: false, type: .structure), 
-            AWSShapeProperty(label: "CreateObject", required: false, type: .structure), 
-            AWSShapeProperty(label: "DeleteObject", required: false, type: .structure), 
-            AWSShapeProperty(label: "RemoveFacetFromObject", required: false, type: .structure)
-        ]
         /// Result of an add facet to object batch operation.
         public let addFacetToObject: BatchAddFacetToObjectResponse?
         /// Updates a given object’s attributes.
@@ -569,10 +490,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PublishedSchemaArn", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// Published schema ARN that needs to be copied. For more information, see arns.
         public let publishedSchemaArn: String
         /// ARN associated with the Directory into which the schema is copied. For more information, see arns.
@@ -597,14 +514,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-consistency-level": "ConsistencyLevel", "x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "IndexReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-consistency-level", required: false, type: .enum), 
-            AWSShapeProperty(label: "RangesOnIndexedValues", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// The reference to the index to list.
         public let indexReference: ObjectReference
         /// The ARN of the directory that the index exists in.
@@ -649,11 +558,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "TargetReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "IndexReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// A reference to the object that you are attaching to the index.
         public let targetReference: ObjectReference
         /// A reference to the index that you are attaching the object to.
@@ -680,10 +584,6 @@ extension Clouddirectory {
     public struct BatchListObjectAttributesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Attributes", required: false, type: .list)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// Attributes map associated with the object. AttributeArn is the key; attribute value is the value.
@@ -710,9 +610,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// The ARN of the directory to delete.
         public let directoryArn: String
 
@@ -737,9 +634,6 @@ extension Clouddirectory {
     public struct BatchWriteResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Responses", required: false, type: .list)
-        ]
         /// List of all the responses for each batch write.
         public let responses: [BatchWriteOperationResponse]?
 
@@ -759,9 +653,6 @@ extension Clouddirectory {
     public struct DeleteDirectoryResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DirectoryArn", required: true, type: .string)
-        ]
         /// The ARN of the deleted directory.
         public let directoryArn: String
 
@@ -781,12 +672,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ParentReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "ChildReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "LinkName", required: true, type: .string)
-        ]
         /// Parent object reference.
         public let parentReference: ObjectReference
         /// Child object reference to be attached to the object.
@@ -821,11 +706,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-consistency-level": "ConsistencyLevel", "x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-consistency-level", required: false, type: .enum), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// The consistency level at which to retrieve the object information.
         public let consistencyLevel: ConsistencyLevel?
         /// A reference to the object.
@@ -862,13 +742,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-consistency-level": "ConsistencyLevel", "x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "TargetReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "X-amz-consistency-level", required: false, type: .enum), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// The ARN of the directory.
         public let directoryArn: String
         /// A reference to the object to that has indices attached.
@@ -902,9 +775,6 @@ extension Clouddirectory {
     public struct CreateIndexResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectIdentifier", required: false, type: .string)
-        ]
         /// The ObjectIdentifier of the index created by this operation.
         public let objectIdentifier: String?
 
@@ -920,11 +790,6 @@ extension Clouddirectory {
     public struct PolicyAttachment: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PolicyType", required: false, type: .string), 
-            AWSShapeProperty(label: "ObjectIdentifier", required: false, type: .string), 
-            AWSShapeProperty(label: "PolicyId", required: false, type: .string)
-        ]
         /// The type of policy that can be associated with PolicyAttachment.
         public let policyType: String?
         /// The ObjectIdentifier associated with PolicyAttachment.
@@ -948,10 +813,6 @@ extension Clouddirectory {
     public struct ListAppliedSchemaArnsResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaArns", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The ARNs of schemas that are applied to the directory.
         public let schemaArns: [String]?
         /// The pagination token.
@@ -971,9 +832,6 @@ extension Clouddirectory {
     public struct EnableDirectoryResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DirectoryArn", required: true, type: .string)
-        ]
         /// The ARN of the enabled directory.
         public let directoryArn: String
 
@@ -990,11 +848,6 @@ extension Clouddirectory {
     public struct ListTagsForResourceRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ResourceArn", required: true, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// ARN of the resource. Tagging is only supported for directories.
         public let resourceArn: String
         /// The pagination token. This is for future use. Currently pagination is not supported for tagging.
@@ -1019,10 +872,6 @@ extension Clouddirectory {
     public struct ListTagsForResourceResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list)
-        ]
         /// The token to use to retrieve the next page of results. This value is null when there are no more results to return.
         public let nextToken: String?
         /// List of tag key value pairs associated with the response.
@@ -1046,10 +895,6 @@ extension Clouddirectory {
     public struct ListPolicyAttachmentsResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "ObjectIdentifiers", required: false, type: .list)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// List of ObjectIdentifiers to which the policy is attached.
@@ -1072,13 +917,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-consistency-level": "ConsistencyLevel", "x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-consistency-level", required: false, type: .enum), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// Maximum number of items to be retrieved in a single call. This is an approximate number.
         public let maxResults: Int32?
         /// ARN associated with the Directory where the object resides. For more information, see arns.
@@ -1115,10 +953,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Document", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// The replacement JSON schema.
         public let document: String
         /// The ARN of the schema to update.
@@ -1140,11 +974,6 @@ extension Clouddirectory {
     public struct ListAppliedSchemaArnsRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "DirectoryArn", required: true, type: .string)
-        ]
         /// The maximum number of results to retrieve.
         public let maxResults: Int32?
         /// The pagination token.
@@ -1169,10 +998,6 @@ extension Clouddirectory {
     public struct ObjectAttributeAction: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectAttributeActionType", required: false, type: .enum), 
-            AWSShapeProperty(label: "ObjectAttributeUpdateValue", required: false, type: .structure)
-        ]
         /// Type can be either Update or Delete.
         public let objectAttributeActionType: UpdateActionType?
         /// The value that you want to update to.
@@ -1195,11 +1020,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "LinkName", required: true, type: .string), 
-            AWSShapeProperty(label: "ParentReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// Link name associated with the object that needs to be detached.
         public let linkName: String
         /// Parent reference from which the object with the specified link name is detached.
@@ -1229,11 +1049,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PolicyReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// Reference that identifies the policy object.
         public let policyReference: ObjectReference
         /// Reference that identifies the object whose policy object will be detached.
@@ -1260,10 +1075,6 @@ extension Clouddirectory {
     public struct SchemaFacet: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaArn", required: false, type: .string), 
-            AWSShapeProperty(label: "FacetName", required: false, type: .string)
-        ]
         /// The ARN of the schema that contains the facet.
         public let schemaArn: String?
         /// The name of the facet.
@@ -1286,11 +1097,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DevelopmentSchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "Version", required: true, type: .string)
-        ]
         /// ARN associated with the development schema. For more information, see arns.
         public let developmentSchemaArn: String
         /// New name under which the schema will be published. If this is not provided, the development schema is considered.
@@ -1316,9 +1122,6 @@ extension Clouddirectory {
     public struct GetDirectoryResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Directory", required: true, type: .structure)
-        ]
         /// Metadata about the directory.
         public let directory: Directory
 
@@ -1335,9 +1138,6 @@ extension Clouddirectory {
     public struct BatchReadResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Responses", required: false, type: .list)
-        ]
         /// List of all the responses for each batch read.
         public let responses: [BatchReadOperationResponse]?
 
@@ -1357,9 +1157,6 @@ extension Clouddirectory {
     public struct BatchDetachObjectResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "detachedObjectIdentifier", required: false, type: .string)
-        ]
         /// The ObjectIdentifier of the detached object.
         public let detachedObjectIdentifier: String?
 
@@ -1375,10 +1172,6 @@ extension Clouddirectory {
     public struct FacetAttributeReference: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "TargetAttributeName", required: true, type: .string), 
-            AWSShapeProperty(label: "TargetFacetName", required: true, type: .string)
-        ]
         /// Target attribute name associated with the facet reference. See Attribute References for more information.
         public let targetAttributeName: String
         /// Target facet name associated with the facet reference. See Attribute References for more information.
@@ -1400,9 +1193,6 @@ extension Clouddirectory {
     public struct BatchDeleteObject: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// Reference that identifies the object.
         public let objectReference: ObjectReference
 
@@ -1422,13 +1212,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaFacets", required: true, type: .list), 
-            AWSShapeProperty(label: "ParentReference", required: false, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "ObjectAttributeList", required: false, type: .list), 
-            AWSShapeProperty(label: "LinkName", required: false, type: .string)
-        ]
         /// List of facet ARNs to be associated with the object. For more information, see arns.
         public let schemaFacets: [SchemaFacet]
         /// If specified, the parent reference to which this object will be attached.
@@ -1466,10 +1249,6 @@ extension Clouddirectory {
     public struct ApplySchemaResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AppliedSchemaArn", required: false, type: .string), 
-            AWSShapeProperty(label: "DirectoryArn", required: false, type: .string)
-        ]
         /// Applied schema ARN associated with the copied schema in the Directory. You can use this ARN to describe the schema information applied on this directory. For more information, see arns.
         public let appliedSchemaArn: String?
         /// ARN associated with the Directory. For more information, see arns.
@@ -1500,12 +1279,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// Maximum number of items to be retrieved in a single call. This is an approximate number.
         public let maxResults: Int32?
         /// ARN associated with the Directory. For more information, see arns.
@@ -1535,10 +1308,6 @@ extension Clouddirectory {
     public struct BatchReadOperationResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ExceptionResponse", required: false, type: .structure), 
-            AWSShapeProperty(label: "SuccessfulResponse", required: false, type: .structure)
-        ]
         /// Identifies which operation in a batch has failed.
         public let exceptionResponse: BatchReadException?
         /// Identifies which operation in a batch has succeeded.
@@ -1558,10 +1327,6 @@ extension Clouddirectory {
     public struct ListAttachedIndicesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "IndexAttachments", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The indices attached to the specified object.
         public let indexAttachments: [IndexAttachment]?
         /// The pagination token.
@@ -1598,11 +1363,6 @@ extension Clouddirectory {
     public struct BatchAddFacetToObject: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaFacet", required: true, type: .structure), 
-            AWSShapeProperty(label: "ObjectAttributeList", required: true, type: .list), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// Represents the facet being added to the object.
         public let schemaFacet: SchemaFacet
         /// The attributes to set on the object.
@@ -1629,10 +1389,6 @@ extension Clouddirectory {
     public struct ListObjectAttributesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Attributes", required: false, type: .list)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// Attributes map associated with the object. AttributeArn is the key, and attribute value is the value.
@@ -1662,10 +1418,6 @@ extension Clouddirectory {
     public struct BatchUpdateObjectAttributes: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttributeUpdates", required: true, type: .list), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// Attributes update structure.
         public let attributeUpdates: [ObjectAttributeUpdate]
         /// Reference that identifies the object.
@@ -1690,12 +1442,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectType", required: true, type: .enum), 
-            AWSShapeProperty(label: "Attributes", required: false, type: .list), 
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// Specifies whether a given object created from this facet is of type Node, Leaf Node, Policy or Index.   Node: Can have multiple children but one parent.     Leaf Node: Cannot have children but can have multiple parents.     Policy: Allows you to store a policy document and policy type. For more information, see Policies.     Index: Can be created with the Index API.  
         public let objectType: ObjectType
         /// Attributes associated with the Facet.e
@@ -1738,10 +1484,6 @@ extension Clouddirectory {
     public struct ListFacetNamesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "FacetNames", required: false, type: .list)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// The names of facets that exist within the schema.
@@ -1761,12 +1503,6 @@ extension Clouddirectory {
     public struct CreateDirectoryResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DirectoryArn", required: true, type: .string), 
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "ObjectIdentifier", required: true, type: .string), 
-            AWSShapeProperty(label: "AppliedSchemaArn", required: true, type: .string)
-        ]
         /// ARN associated with the Directory. For more information, see arns.
         public let directoryArn: String
         /// Name of the Directory.
@@ -1806,13 +1542,6 @@ extension Clouddirectory {
     public struct BatchCreateObject: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ParentReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "SchemaFacet", required: true, type: .list), 
-            AWSShapeProperty(label: "BatchReferenceName", required: true, type: .string), 
-            AWSShapeProperty(label: "ObjectAttributeList", required: true, type: .list), 
-            AWSShapeProperty(label: "LinkName", required: true, type: .string)
-        ]
         /// If specified, the parent reference to which this object will be attached.
         public let parentReference: ObjectReference
         /// List of FacetArns that will be associated with the object. For more information, see arns.
@@ -1849,10 +1578,6 @@ extension Clouddirectory {
     public struct UntagResourceRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ResourceArn", required: true, type: .string), 
-            AWSShapeProperty(label: "TagKeys", required: true, type: .list)
-        ]
         /// ARN of the resource. Tagging is only supported for directories.
         public let resourceArn: String
         /// Keys of the tag that needs to be removed from the resource.
@@ -1874,10 +1599,6 @@ extension Clouddirectory {
     public struct ListDirectoriesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Directories", required: true, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// Lists all directories associated with your account in pagination fashion.
         public let directories: [Directory]
         /// The pagination token.
@@ -1898,10 +1619,6 @@ extension Clouddirectory {
     public struct BatchListObjectChildrenResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Children", required: false, type: .map)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// Children structure, which is a map with key as the LinkName and ObjectIdentifier as the value.
@@ -1928,13 +1645,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-consistency-level": "ConsistencyLevel", "x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-consistency-level", required: false, type: .enum), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// Maximum number of items to be retrieved in a single call. This is an approximate number.
         public let maxResults: Int32?
         /// ARN associated with the Directory where objects reside. For more information, see arns.
@@ -1971,9 +1681,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// The ARN of the directory to disable.
         public let directoryArn: String
 
@@ -1990,9 +1697,6 @@ extension Clouddirectory {
     public struct DetachFromIndexResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DetachedObjectIdentifier", required: false, type: .string)
-        ]
         /// The ObjectIdentifier of the object that was detached from the index.
         public let detachedObjectIdentifier: String?
 
@@ -2016,11 +1720,6 @@ extension Clouddirectory {
     public struct BatchListObjectAttributes: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// Reference of the object whose attributes need to be listed.
         public let objectReference: ObjectReference
         /// The pagination token.
@@ -2045,9 +1744,6 @@ extension Clouddirectory {
     public struct AttachObjectResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttachedObjectIdentifier", required: false, type: .string)
-        ]
         /// Attached ObjectIdentifier, which is the child ObjectIdentifier.
         public let attachedObjectIdentifier: String?
 
@@ -2066,12 +1762,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// Maximum number of items to be retrieved in a single call. This is an approximate number.
         public let maxResults: Int32?
         /// The ARN of the directory to which the parent path applies.
@@ -2104,10 +1794,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// Name of the Directory. Should be unique per account, per region.
         public let name: String
         /// ARN of the published schema that will be copied into the data Directory. For more information, see arns.
@@ -2132,9 +1818,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// The ARN of the schema to retrieve.
         public let schemaArn: String
 
@@ -2154,12 +1837,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectType", required: false, type: .enum), 
-            AWSShapeProperty(label: "AttributeUpdates", required: false, type: .list), 
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// Object type associated with the facet. See CreateFacetRequest$ObjectType for more details.
         public let objectType: ObjectType?
         /// List of attributes that need to be updated in a given schema Facet. Each attribute is followed by AttributeAction, which specifies the type of update operation to perform. 
@@ -2193,9 +1870,6 @@ extension Clouddirectory {
     public struct DisableDirectoryResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DirectoryArn", required: true, type: .string)
-        ]
         /// The ARN of the directory that has been disabled.
         public let directoryArn: String
 
@@ -2215,11 +1889,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PolicyReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: false, type: .string)
-        ]
         /// Reference associated with the policy object.
         public let policyReference: ObjectReference
         /// Reference that identifies the object to which the policy will be attached.
@@ -2252,10 +1921,6 @@ extension Clouddirectory {
     public struct ListDevelopmentSchemaArnsResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaArns", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The ARNs of retrieved development schemas.
         public let schemaArns: [String]?
         /// The pagination token.
@@ -2278,10 +1943,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Operations", required: true, type: .list), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// List of operations that are part of the batch.
         public let operations: [BatchWriteOperation]
         /// ARN associated with the Directory. For more information, see arns.
@@ -2309,9 +1970,6 @@ extension Clouddirectory {
     public struct BatchCreateObjectResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectIdentifier", required: false, type: .string)
-        ]
         /// ID associated with the object.
         public let objectIdentifier: String?
 
@@ -2327,9 +1985,6 @@ extension Clouddirectory {
     public struct BatchUpdateObjectAttributesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectIdentifier", required: false, type: .string)
-        ]
         /// ID associated with the object.
         public let objectIdentifier: String?
 
@@ -2348,11 +2003,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-consistency-level": "ConsistencyLevel", "x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-consistency-level", required: false, type: .enum), 
-            AWSShapeProperty(label: "Operations", required: true, type: .list), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
         public let consistencyLevel: ConsistencyLevel?
         /// List of operations that are part of the batch.
@@ -2378,10 +2028,6 @@ extension Clouddirectory {
     public struct ListPublishedSchemaArnsResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaArns", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The ARNs of published schemas.
         public let schemaArns: [String]?
         /// The pagination token.
@@ -2401,10 +2047,6 @@ extension Clouddirectory {
     public struct BatchReadSuccessfulResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ListObjectChildren", required: false, type: .structure), 
-            AWSShapeProperty(label: "ListObjectAttributes", required: false, type: .structure)
-        ]
         /// Returns a paginated list of child objects associated with a given object.
         public let listObjectChildren: BatchListObjectChildrenResponse?
         /// Lists all attributes associated with an object.
@@ -2424,13 +2066,6 @@ extension Clouddirectory {
     public struct TypedAttributeValue: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StringValue", required: false, type: .string), 
-            AWSShapeProperty(label: "BinaryValue", required: false, type: .blob), 
-            AWSShapeProperty(label: "BooleanValue", required: false, type: .boolean), 
-            AWSShapeProperty(label: "DatetimeValue", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "NumberValue", required: false, type: .string)
-        ]
         /// A string data value.
         public let stringValue: String?
         /// A binary data value.
@@ -2462,10 +2097,6 @@ extension Clouddirectory {
     public struct ListObjectParentPathsResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "PathToObjectIdentifiersList", required: false, type: .list)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// Returns the path to the ObjectIdentifiers associated with the directory.
@@ -2489,11 +2120,6 @@ extension Clouddirectory {
     public struct AttributeKey: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "SchemaArn", required: true, type: .string), 
-            AWSShapeProperty(label: "FacetName", required: true, type: .string)
-        ]
         /// The name of the attribute.
         public let name: String
         /// The ARN of the schema that contains the facet and attribute.
@@ -2520,10 +2146,6 @@ extension Clouddirectory {
     public struct PathToObjectIdentifiers: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectIdentifiers", required: false, type: .list), 
-            AWSShapeProperty(label: "Path", required: false, type: .string)
-        ]
         /// Lists ObjectIdentifiers starting from directory root to the object in the request.
         public let objectIdentifiers: [String]?
         /// The path used to identify the object starting from directory root.
@@ -2543,11 +2165,6 @@ extension Clouddirectory {
     public struct BatchDetachObject: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "BatchReferenceName", required: true, type: .string), 
-            AWSShapeProperty(label: "ParentReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "LinkName", required: true, type: .string)
-        ]
         /// The batch reference name. See Batches for more information.
         public let batchReferenceName: String
         /// Parent reference from which the object with the specified link name is detached.
@@ -2577,10 +2194,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// The name of the facet to retrieve.
         public let name: String
         /// ARN associated with the Facet. For more information, see arns.
@@ -2605,10 +2218,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// Name of the schema.
         public let name: String
         /// ARN of the development schema. For more information, see arns.
@@ -2630,10 +2239,6 @@ extension Clouddirectory {
     public struct IndexAttachment: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "IndexedAttributes", required: false, type: .list), 
-            AWSShapeProperty(label: "ObjectIdentifier", required: false, type: .string)
-        ]
         /// The indexed attribute values.
         public let indexedAttributes: [AttributeKeyAndValue]?
         /// The ObjectIdentifier of the object attached to the index.
@@ -2657,10 +2262,6 @@ extension Clouddirectory {
     public struct ObjectAttributeUpdate: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectAttributeKey", required: false, type: .structure), 
-            AWSShapeProperty(label: "ObjectAttributeAction", required: false, type: .structure)
-        ]
         /// The key of the attribute being updated.
         public let objectAttributeKey: AttributeKey?
         /// The action to perform as part of the attribute update.
@@ -2683,13 +2284,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "OrderedIndexedAttributeList", required: true, type: .list), 
-            AWSShapeProperty(label: "IsUnique", required: true, type: .boolean), 
-            AWSShapeProperty(label: "ParentReference", required: false, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "LinkName", required: false, type: .string)
-        ]
         /// Specifies the Attributes that should be indexed on. Currently only a single attribute is supported.
         public let orderedIndexedAttributeList: [AttributeKey]
         /// Indicates whether objects with the same indexed attribute value can be added to the index.
@@ -2724,10 +2318,6 @@ extension Clouddirectory {
     public struct Facet: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectType", required: false, type: .enum), 
-            AWSShapeProperty(label: "Name", required: false, type: .string)
-        ]
         /// Object type associated with the facet. See CreateFacetRequest$ObjectType for more details.
         public let objectType: ObjectType?
         /// The name of the Facet.
@@ -2756,11 +2346,6 @@ extension Clouddirectory {
     public struct ListDirectoriesRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "state", required: false, type: .enum), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// The state of the directories in the list. Can be either Enabled, Disabled, or Deleted.
         public let state: DirectoryState?
         /// The pagination token.
@@ -2784,12 +2369,6 @@ extension Clouddirectory {
     public struct FacetAttributeDefinition: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "IsImmutable", required: false, type: .boolean), 
-            AWSShapeProperty(label: "Rules", required: false, type: .map), 
-            AWSShapeProperty(label: "Type", required: true, type: .enum), 
-            AWSShapeProperty(label: "DefaultValue", required: false, type: .structure)
-        ]
         /// Whether the attribute is mutable or not.
         public let isImmutable: Bool?
         /// Validation rules attached to the attribute definition.
@@ -2838,13 +2417,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-consistency-level": "ConsistencyLevel", "x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-consistency-level", required: false, type: .enum), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// Maximum number of items to be retrieved in a single call. This is an approximate number.
         public let maxResults: Int32?
         /// ARN associated with the Directory where the object resides. For more information, see arns.
@@ -2878,9 +2450,6 @@ extension Clouddirectory {
     public struct PublishSchemaResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PublishedSchemaArn", required: false, type: .string)
-        ]
         /// ARN associated with the published schema. For more information, see arns.
         public let publishedSchemaArn: String?
 
@@ -2896,9 +2465,6 @@ extension Clouddirectory {
     public struct CreateObjectResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectIdentifier", required: false, type: .string)
-        ]
         /// Identifier associated with the object.
         public let objectIdentifier: String?
 
@@ -2917,9 +2483,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// ARN of the development schema. For more information, see arns.
         public let schemaArn: String
 
@@ -2936,10 +2499,6 @@ extension Clouddirectory {
     public struct GetObjectInformationResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaFacets", required: false, type: .list), 
-            AWSShapeProperty(label: "ObjectIdentifier", required: false, type: .string)
-        ]
         /// The facets attached to the specified object.
         public let schemaFacets: [SchemaFacet]?
         /// The ObjectIdentifier of the specified object.
@@ -2971,10 +2530,6 @@ extension Clouddirectory {
     public struct ListIndexResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "IndexAttachments", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The objects and indexed values attached to the index.
         public let indexAttachments: [IndexAttachment]?
         /// The pagination token.
@@ -3001,11 +2556,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "AttributeUpdates", required: true, type: .list), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// Reference that identifies the object.
         public let objectReference: ObjectReference
         /// Attributes update structure.
@@ -3032,15 +2582,6 @@ extension Clouddirectory {
     public struct BatchWriteOperation: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AddFacetToObject", required: false, type: .structure), 
-            AWSShapeProperty(label: "UpdateObjectAttributes", required: false, type: .structure), 
-            AWSShapeProperty(label: "DetachObject", required: false, type: .structure), 
-            AWSShapeProperty(label: "AttachObject", required: false, type: .structure), 
-            AWSShapeProperty(label: "CreateObject", required: false, type: .structure), 
-            AWSShapeProperty(label: "DeleteObject", required: false, type: .structure), 
-            AWSShapeProperty(label: "RemoveFacetFromObject", required: false, type: .structure)
-        ]
         /// Batch operation adding a facet to an object.
         public let addFacetToObject: BatchAddFacetToObject?
         /// Update a given object's attributes.
@@ -3080,9 +2621,6 @@ extension Clouddirectory {
     public struct DeleteSchemaResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaArn", required: false, type: .string)
-        ]
         /// Input ARN that is returned as part of the response. For more information, see arns.
         public let schemaArn: String?
 
@@ -3101,13 +2639,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-consistency-level": "ConsistencyLevel", "x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-consistency-level", required: false, type: .enum), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// Maximum number of items to be retrieved in a single call. This is an approximate number.
         public let maxResults: Int32?
         /// ARN associated with the Directory where the object resides. For more information, see arns.
@@ -3141,10 +2672,6 @@ extension Clouddirectory {
     public struct ListPublishedSchemaArnsRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// The maximum number of results to retrieve.
@@ -3164,9 +2691,6 @@ extension Clouddirectory {
     public struct CreateSchemaRequest: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Name", required: true, type: .string)
-        ]
         /// Name associated with the schema. This is unique to each account and in each region.
         public let name: String
 
@@ -3183,9 +2707,6 @@ extension Clouddirectory {
     public struct GetFacetResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Facet", required: false, type: .structure)
-        ]
         ///  Facet structure associated with the facet.
         public let facet: Facet?
 
@@ -3201,10 +2722,6 @@ extension Clouddirectory {
     public struct ListObjectPoliciesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttachedPolicyIds", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// List of policy ObjectIdentifiers, that are attached to the object.
         public let attachedPolicyIds: [String]?
         /// The pagination token.
@@ -3224,9 +2741,6 @@ extension Clouddirectory {
     public struct PutSchemaFromJsonResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Arn", required: false, type: .string)
-        ]
         /// The ARN of the schema to update.
         public let arn: String?
 
@@ -3242,11 +2756,6 @@ extension Clouddirectory {
     public struct BatchAttachObject: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ChildReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "ParentReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "LinkName", required: true, type: .string)
-        ]
         /// Child object reference to be attached to the object.
         public let childReference: ObjectReference
         /// Parent object reference.
@@ -3273,9 +2782,6 @@ extension Clouddirectory {
     public struct DetachObjectResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DetachedObjectIdentifier", required: false, type: .string)
-        ]
         /// The ObjectIdentifier that was detached from the object.
         public let detachedObjectIdentifier: String?
 
@@ -3291,10 +2797,6 @@ extension Clouddirectory {
     public struct AttributeKeyAndValue: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: true, type: .structure), 
-            AWSShapeProperty(label: "Key", required: true, type: .structure)
-        ]
         /// The value of the attribute.
         public let value: TypedAttributeValue
         /// The key of the attribute.
@@ -3319,9 +2821,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// The ARN of the directory to enable.
         public let directoryArn: String
 
@@ -3338,10 +2837,6 @@ extension Clouddirectory {
     public struct ListFacetAttributesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Attributes", required: false, type: .list)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// The attributes attached to the facet.
@@ -3365,10 +2860,6 @@ extension Clouddirectory {
     public struct BatchReadOperation: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ListObjectChildren", required: false, type: .structure), 
-            AWSShapeProperty(label: "ListObjectAttributes", required: false, type: .structure)
-        ]
         /// Returns a paginated list of child objects that are associated with a given object.
         public let listObjectChildren: BatchListObjectChildren?
         /// Lists all attributes associated with an object.
@@ -3391,12 +2882,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// The name of the facet whose attributes will be retrieved.
@@ -3426,10 +2911,6 @@ extension Clouddirectory {
     public struct BatchReadException: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Type", required: false, type: .enum), 
-            AWSShapeProperty(label: "Message", required: false, type: .string)
-        ]
         /// Type of exception, such as InvalidArnException.
         public let `type`: BatchReadExceptionType?
         /// Exception message associated with the failure.
@@ -3458,10 +2939,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// Reference that identifies the object.
         public let objectReference: ObjectReference
         /// ARN associated with the Directory where the object resides. For more information, see arns.
@@ -3483,11 +2960,6 @@ extension Clouddirectory {
     public struct BatchListObjectChildren: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// Reference of the object for which child objects are being listed.
         public let objectReference: ObjectReference
         /// The pagination token.
@@ -3520,10 +2992,6 @@ extension Clouddirectory {
     public struct PolicyToPath: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Policies", required: false, type: .list), 
-            AWSShapeProperty(label: "Path", required: false, type: .string)
-        ]
         /// List of policy objects.
         public let policies: [PolicyAttachment]?
         /// The path that is referenced from the root.
@@ -3547,9 +3015,6 @@ extension Clouddirectory {
     public struct ObjectReference: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Selector", required: false, type: .string)
-        ]
         /// Allows you to specify an object. You can identify an object in one of the following ways:    $ObjectIdentifier - Identifies the object by ObjectIdentifier     /some/path - Identifies the object based on path    #SomeBatchReference - Identifies the object in a batch call  
         public let selector: String?
 
@@ -3573,9 +3038,6 @@ extension Clouddirectory {
     public struct AttachToIndexResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AttachedObjectIdentifier", required: false, type: .string)
-        ]
         /// The ObjectIdentifier of the object that was attached to the index.
         public let attachedObjectIdentifier: String?
 
@@ -3594,11 +3056,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "TargetReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "IndexReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// A reference to the object being detached from the index.
         public let targetReference: ObjectReference
         /// A reference to the index object.
@@ -3625,10 +3082,6 @@ extension Clouddirectory {
     public struct BatchRemoveFacetFromObject: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SchemaFacet", required: true, type: .structure), 
-            AWSShapeProperty(label: "ObjectReference", required: true, type: .structure)
-        ]
         /// The facet to remove from the object.
         public let schemaFacet: SchemaFacet
         /// A reference to the object whose facet will be removed.
@@ -3653,11 +3106,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// The ARN to retrieve facet names from.
@@ -3682,9 +3130,6 @@ extension Clouddirectory {
     public struct BatchAttachObjectResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "attachedObjectIdentifier", required: false, type: .string)
-        ]
         /// The ObjectIdentifier of the object that has been attached.
         public let attachedObjectIdentifier: String?
 
@@ -3700,10 +3145,6 @@ extension Clouddirectory {
     public struct FacetAttributeUpdate: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Action", required: false, type: .enum), 
-            AWSShapeProperty(label: "Attribute", required: false, type: .structure)
-        ]
         /// The action to perform when updating the attribute.
         public let action: UpdateActionType?
         /// The attribute to update.
@@ -3723,9 +3164,6 @@ extension Clouddirectory {
     public struct UpdateObjectAttributesResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ObjectIdentifier", required: false, type: .string)
-        ]
         ///  ObjectIdentifier of the updated object.
         public let objectIdentifier: String?
 
@@ -3752,13 +3190,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-consistency-level": "ConsistencyLevel", "x-amz-data-partition": "DirectoryArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PolicyReference", required: true, type: .structure), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "X-amz-consistency-level", required: false, type: .enum), 
-            AWSShapeProperty(label: "MaxResults", required: false, type: .integer)
-        ]
         /// Reference that identifies the policy object.
         public let policyReference: ObjectReference
         /// ARN associated with the Directory where objects reside. For more information, see arns.
@@ -3792,10 +3223,6 @@ extension Clouddirectory {
     public struct ListObjectParentsResponse: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Parents", required: false, type: .map)
-        ]
         /// The pagination token.
         public let nextToken: String?
         /// Parent structure, which is a map with key as the ObjectIdentifier and LinkName as the value.
@@ -3822,10 +3249,6 @@ extension Clouddirectory {
         public static var headerParams: [String: String] {
             return ["x-amz-data-partition": "SchemaArn"]
         }
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "X-amz-data-partition", required: true, type: .string)
-        ]
         /// The name of the facet to delete.
         public let name: String
         /// ARN associated with the Facet. For more information, see arns.

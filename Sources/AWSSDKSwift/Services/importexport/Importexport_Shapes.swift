@@ -32,11 +32,6 @@ extension Importexport {
     public struct ListJobsInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Marker", required: false, type: .string), 
-            AWSShapeProperty(label: "MaxJobs", required: false, type: .integer), 
-            AWSShapeProperty(label: "APIVersion", required: false, type: .string)
-        ]
         public let marker: String?
         public let maxJobs: Int32?
         public let aPIVersion: String?
@@ -57,13 +52,6 @@ extension Importexport {
     public struct CreateJobInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "JobType", required: true, type: .enum), 
-            AWSShapeProperty(label: "ManifestAddendum", required: false, type: .string), 
-            AWSShapeProperty(label: "Manifest", required: true, type: .string), 
-            AWSShapeProperty(label: "APIVersion", required: false, type: .string), 
-            AWSShapeProperty(label: "ValidateOnly", required: true, type: .boolean)
-        ]
         public let jobType: JobType
         public let manifestAddendum: String?
         public let manifest: String
@@ -93,20 +81,6 @@ extension Importexport {
     public struct GetShippingLabelInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "stateOrProvince", required: false, type: .string), 
-            AWSShapeProperty(label: "city", required: false, type: .string), 
-            AWSShapeProperty(label: "postalCode", required: false, type: .string), 
-            AWSShapeProperty(label: "name", required: false, type: .string), 
-            AWSShapeProperty(label: "phoneNumber", required: false, type: .string), 
-            AWSShapeProperty(label: "street3", required: false, type: .string), 
-            AWSShapeProperty(label: "jobIds", required: true, type: .list), 
-            AWSShapeProperty(label: "APIVersion", required: false, type: .string), 
-            AWSShapeProperty(label: "street2", required: false, type: .string), 
-            AWSShapeProperty(label: "street1", required: false, type: .string), 
-            AWSShapeProperty(label: "company", required: false, type: .string), 
-            AWSShapeProperty(label: "country", required: false, type: .string)
-        ]
         public let stateOrProvince: String?
         public let city: String?
         public let postalCode: String?
@@ -155,10 +129,6 @@ extension Importexport {
     public struct GetStatusInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "JobId", required: true, type: .string), 
-            AWSShapeProperty(label: "APIVersion", required: false, type: .string)
-        ]
         public let jobId: String
         public let aPIVersion: String?
 
@@ -177,14 +147,6 @@ extension Importexport {
     public struct CreateJobOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "JobType", required: false, type: .enum), 
-            AWSShapeProperty(label: "ArtifactList", required: false, type: .list), 
-            AWSShapeProperty(label: "SignatureFileContents", required: false, type: .string), 
-            AWSShapeProperty(label: "WarningMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "Signature", required: false, type: .string), 
-            AWSShapeProperty(label: "JobId", required: false, type: .string)
-        ]
         public let jobType: JobType?
         public let artifactList: [Artifact]?
         public let signatureFileContents: String?
@@ -224,10 +186,6 @@ extension Importexport {
     public struct GetShippingLabelOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Warning", required: false, type: .string), 
-            AWSShapeProperty(label: "ShippingLabelURL", required: false, type: .string)
-        ]
         public let warning: String?
         public let shippingLabelURL: String?
 
@@ -245,11 +203,6 @@ extension Importexport {
     public struct UpdateJobOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Success", required: false, type: .boolean), 
-            AWSShapeProperty(label: "WarningMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "ArtifactList", required: false, type: .list)
-        ]
         public let success: Bool?
         public let warningMessage: String?
         public let artifactList: [Artifact]?
@@ -274,13 +227,6 @@ extension Importexport {
     public struct UpdateJobInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "JobType", required: true, type: .enum), 
-            AWSShapeProperty(label: "APIVersion", required: false, type: .string), 
-            AWSShapeProperty(label: "Manifest", required: true, type: .string), 
-            AWSShapeProperty(label: "JobId", required: true, type: .string), 
-            AWSShapeProperty(label: "ValidateOnly", required: true, type: .boolean)
-        ]
         public let jobType: JobType
         public let aPIVersion: String?
         public let manifest: String
@@ -311,12 +257,6 @@ extension Importexport {
     public struct Job: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "JobType", required: false, type: .enum), 
-            AWSShapeProperty(label: "CreationDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "JobId", required: false, type: .string), 
-            AWSShapeProperty(label: "IsCanceled", required: false, type: .boolean)
-        ]
         public let jobType: JobType?
         public let creationDate: Date?
         public let jobId: String?
@@ -340,24 +280,6 @@ extension Importexport {
     public struct GetStatusOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Carrier", required: false, type: .string), 
-            AWSShapeProperty(label: "ArtifactList", required: false, type: .list), 
-            AWSShapeProperty(label: "Signature", required: false, type: .string), 
-            AWSShapeProperty(label: "ProgressMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "CreationDate", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "CurrentManifest", required: false, type: .string), 
-            AWSShapeProperty(label: "TrackingNumber", required: false, type: .string), 
-            AWSShapeProperty(label: "ProgressCode", required: false, type: .string), 
-            AWSShapeProperty(label: "JobId", required: false, type: .string), 
-            AWSShapeProperty(label: "LogKey", required: false, type: .string), 
-            AWSShapeProperty(label: "SignatureFileContents", required: false, type: .string), 
-            AWSShapeProperty(label: "LocationMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "JobType", required: false, type: .enum), 
-            AWSShapeProperty(label: "ErrorCount", required: false, type: .integer), 
-            AWSShapeProperty(label: "LogBucket", required: false, type: .string), 
-            AWSShapeProperty(label: "LocationCode", required: false, type: .string)
-        ]
         public let carrier: String?
         public let artifactList: [Artifact]?
         public let signature: String?
@@ -421,10 +343,6 @@ extension Importexport {
     public struct ListJobsOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Jobs", required: false, type: .list), 
-            AWSShapeProperty(label: "IsTruncated", required: false, type: .boolean)
-        ]
         public let jobs: [Job]?
         public let isTruncated: Bool?
 
@@ -446,10 +364,6 @@ extension Importexport {
     public struct Artifact: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "URL", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         public let uRL: String?
         public let description: String?
 
@@ -467,10 +381,6 @@ extension Importexport {
     public struct CancelJobInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "JobId", required: true, type: .string), 
-            AWSShapeProperty(label: "APIVersion", required: false, type: .string)
-        ]
         public let jobId: String
         public let aPIVersion: String?
 
@@ -489,9 +399,6 @@ extension Importexport {
     public struct CancelJobOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Success", required: false, type: .boolean)
-        ]
         public let success: Bool?
 
         public init(success: Bool? = nil) {

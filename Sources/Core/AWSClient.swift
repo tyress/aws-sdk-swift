@@ -179,7 +179,7 @@ public struct AWSClient {
     private func validate<Output: AWSShape>(operation operationName: String, response: Prorsum.Response) throws -> Output {
         var responseBody: Body = .empty
         let data = response.body.asData()
-
+        
         if !data.isEmpty {
             switch serviceProtocol {
             case .json, .restjson:
@@ -191,14 +191,11 @@ public struct AWSClient {
                             continue
                         }
                         
-                        guard let hint = Output.parsingHints.filter({ $0.label == rel }).first else {
-                            continue
-                        }
+                        let isArray = representation.links.filter({ $0.rel == rel }).count > 1
                         
-                        switch hint.type {
-                        case .list:
+                        if isArray {
                             dictionary[rel] = representations.map({ $0.properties })
-                        default:
+                        } else {
                             dictionary[rel] = representations.map({ $0.properties }).first ?? [:]
                         }
                     }

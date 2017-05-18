@@ -32,11 +32,6 @@ extension Servicecatalog {
     public struct DeletePortfolioShareInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AccountId", required: true, type: .string), 
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string)
-        ]
         /// The account ID associated with the share to delete.
         public let accountId: String
         /// The portfolio identifier.
@@ -62,11 +57,6 @@ extension Servicecatalog {
     public struct DisassociatePrincipalFromPortfolioInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PrincipalARN", required: true, type: .string), 
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string)
-        ]
         /// The ARN representing the principal (IAM user, role, or group).
         public let principalARN: String
         /// The portfolio identifier.
@@ -99,10 +89,6 @@ extension Servicecatalog {
     public struct DeletePortfolioInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: true, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The identifier of the portfolio for the delete request.
@@ -123,11 +109,6 @@ extension Servicecatalog {
     public struct DescribeProvisioningParametersOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UsageInstructions", required: false, type: .list), 
-            AWSShapeProperty(label: "ProvisioningArtifactParameters", required: false, type: .list), 
-            AWSShapeProperty(label: "ConstraintSummaries", required: false, type: .list)
-        ]
         /// Any additional metadata specifically related to the provisioning of the product. For example, see the Version field of the CloudFormation template.
         public let usageInstructions: [UsageInstruction]?
         /// The list of parameters used to successfully provision the product. Each parameter includes a list of allowable values and additional metadata about each parameter.
@@ -163,12 +144,6 @@ extension Servicecatalog {
     public struct ProvisioningArtifactProperties: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "Type", required: false, type: .enum), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "Info", required: true, type: .map)
-        ]
         /// The text description of the provisioning artifact properties.
         public let description: String?
         /// The type of the provisioning artifact properties.
@@ -197,10 +172,6 @@ extension Servicecatalog {
     public struct DescribeProductAsAdminOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "ProductViewDetail", required: false, type: .structure)
-        ]
         /// Tags associated with the product.
         public let tags: [Tag]?
         /// Detailed product view information.
@@ -224,10 +195,6 @@ extension Servicecatalog {
     public struct ListPortfolioAccessOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string), 
-            AWSShapeProperty(label: "AccountIds", required: false, type: .list)
-        ]
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
         public let nextPageToken: String?
         /// List of account IDs associated with access to the portfolio.
@@ -247,11 +214,6 @@ extension Servicecatalog {
     public struct CreateProductOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "ProductViewDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "ProvisioningArtifactDetail", required: false, type: .structure)
-        ]
         /// Tags successfully associated with the new product.
         public let tags: [Tag]?
         /// The resulting detailed product view information.
@@ -284,10 +246,6 @@ extension Servicecatalog {
     public struct UsageInstruction: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Type", required: false, type: .string), 
-            AWSShapeProperty(label: "Value", required: false, type: .string)
-        ]
         /// The usage instruction type for the value.
         public let `type`: String?
         /// The usage instruction value for this type.
@@ -307,11 +265,6 @@ extension Servicecatalog {
     public struct CreatePortfolioShareInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AccountId", required: true, type: .string), 
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string)
-        ]
         /// The account ID with which to share the portfolio.
         public let accountId: String
         /// The portfolio identifier.
@@ -337,10 +290,6 @@ extension Servicecatalog {
     public struct DescribeProductViewOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProductViewSummary", required: false, type: .structure), 
-            AWSShapeProperty(label: "ProvisioningArtifacts", required: false, type: .list)
-        ]
         /// The summary metadata about the specified product.
         public let productViewSummary: ProductViewSummary?
         /// A list of provisioning artifact objects for the specified product. The ProvisioningArtifacts represent the ways in which the specified product can be provisioned.
@@ -364,10 +313,6 @@ extension Servicecatalog {
     public struct ScanProvisionedProductsOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProvisionedProducts", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// A list of ProvisionedProduct detail objects.
         public let provisionedProducts: [ProvisionedProductDetail]?
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
@@ -391,10 +336,6 @@ extension Servicecatalog {
     public struct DescribeConstraintInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: true, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The identifier of the constraint.
@@ -415,12 +356,6 @@ extension Servicecatalog {
     public struct ConstraintDetail: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ConstraintId", required: false, type: .string), 
-            AWSShapeProperty(label: "Type", required: false, type: .string), 
-            AWSShapeProperty(label: "Owner", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The identifier of the constraint.
         public let constraintId: String?
         /// The type of the constraint.
@@ -448,10 +383,6 @@ extension Servicecatalog {
     public struct UpdatePortfolioOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PortfolioDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list)
-        ]
         /// The resulting detailed portfolio information.
         public let portfolioDetail: PortfolioDetail?
         /// Tags associated with the portfolio.
@@ -475,10 +406,6 @@ extension Servicecatalog {
     public struct Tag: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: true, type: .string), 
-            AWSShapeProperty(label: "Key", required: true, type: .string)
-        ]
         /// The esired value for this key.
         public let value: String
         /// The ProvisioningArtifactParameter.TagKey parameter from DescribeProvisioningParameters.
@@ -500,10 +427,6 @@ extension Servicecatalog {
     public struct DescribeProductInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: true, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The ProductId of the product to describe.
@@ -524,10 +447,6 @@ extension Servicecatalog {
     public struct ListRecordHistoryOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "RecordDetails", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// A list of record detail objects, listed in reverse chronological order.
         public let recordDetails: [RecordDetail]?
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
@@ -551,12 +470,6 @@ extension Servicecatalog {
     public struct ScanProvisionedProductsInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "AccessLevelFilter", required: false, type: .structure), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string)
-        ]
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
         public let pageSize: Int32?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -584,14 +497,6 @@ extension Servicecatalog {
     public struct CreatePortfolioInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "ProviderName", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "DisplayName", required: true, type: .string), 
-            AWSShapeProperty(label: "IdempotencyToken", required: true, type: .string)
-        ]
         /// The text description of the portfolio.
         public let description: String?
         /// The name of the portfolio provider.
@@ -634,10 +539,6 @@ extension Servicecatalog {
     public struct ListRecordHistorySearchFilter: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Key", required: false, type: .string)
-        ]
         /// The filter value for Key.
         public let value: String?
         /// The filter key.
@@ -657,11 +558,6 @@ extension Servicecatalog {
     public struct ListPortfoliosInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string)
-        ]
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
         public let pageSize: Int32?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -693,10 +589,6 @@ extension Servicecatalog {
     public struct ListLaunchPathsOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "LaunchPathSummaries", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// List of launch path information summaries for the specified PageToken.
         public let launchPathSummaries: [LaunchPathSummary]?
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
@@ -720,10 +612,6 @@ extension Servicecatalog {
     public struct ListConstraintsForPortfolioOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ConstraintDetails", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// List of detailed constraint information objects.
         public let constraintDetails: [ConstraintDetail]?
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
@@ -747,10 +635,6 @@ extension Servicecatalog {
     public struct UpdateProductOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "ProductViewDetail", required: false, type: .structure)
-        ]
         /// Tags associated with the product.
         public let tags: [Tag]?
         /// The resulting detailed product view information.
@@ -774,16 +658,6 @@ extension Servicecatalog {
     public struct SearchProductsAsAdminInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "SortBy", required: false, type: .enum), 
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "ProductSource", required: false, type: .enum), 
-            AWSShapeProperty(label: "PortfolioId", required: false, type: .string), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string), 
-            AWSShapeProperty(label: "SortOrder", required: false, type: .enum), 
-            AWSShapeProperty(label: "Filters", required: false, type: .map)
-        ]
         /// The sort field specifier. If no value is specified, results are not sorted.
         public let sortBy: ProductViewSortBy?
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
@@ -836,17 +710,6 @@ extension Servicecatalog {
     public struct ProvisionProductInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProvisioningArtifactId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "NotificationArns", required: false, type: .list), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "ProvisionToken", required: true, type: .string), 
-            AWSShapeProperty(label: "PathId", required: false, type: .string), 
-            AWSShapeProperty(label: "ProvisioningParameters", required: false, type: .list), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "ProvisionedProductName", required: true, type: .string)
-        ]
         /// The provisioning artifact identifier for this product.
         public let provisioningArtifactId: String
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -906,11 +769,6 @@ extension Servicecatalog {
     public struct UpdateProvisioningParameter: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Key", required: false, type: .string), 
-            AWSShapeProperty(label: "UsePreviousValue", required: false, type: .boolean)
-        ]
         /// The value to use for updating the product provisioning. Any constraints on this value can be found in the ProvisioningArtifactParameter parameter for Key.
         public let value: String?
         /// The ProvisioningArtifactParameter.ParameterKey parameter from DescribeProvisioningParameters.
@@ -934,15 +792,6 @@ extension Servicecatalog {
     public struct CreateConstraintInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "Parameters", required: true, type: .string), 
-            AWSShapeProperty(label: "IdempotencyToken", required: true, type: .string), 
-            AWSShapeProperty(label: "Type", required: true, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The portfolio identifier.
@@ -992,12 +841,6 @@ extension Servicecatalog {
     public struct LaunchPathSummary: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ConstraintSummaries", required: false, type: .list), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: false, type: .string)
-        ]
         /// List of constraints on the portfolio-product relationship.
         public let constraintSummaries: [ConstraintSummary]?
         /// List of tags used by this launch path.
@@ -1041,16 +884,6 @@ extension Servicecatalog {
     public struct UpdateProvisionedProductInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProvisioningArtifactId", required: false, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "UpdateToken", required: true, type: .string), 
-            AWSShapeProperty(label: "ProvisionedProductId", required: false, type: .string), 
-            AWSShapeProperty(label: "PathId", required: false, type: .string), 
-            AWSShapeProperty(label: "ProvisioningParameters", required: false, type: .list), 
-            AWSShapeProperty(label: "ProductId", required: false, type: .string), 
-            AWSShapeProperty(label: "ProvisionedProductName", required: false, type: .string)
-        ]
         /// The provisioning artifact identifier for this product.
         public let provisioningArtifactId: String?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -1115,14 +948,6 @@ extension Servicecatalog {
     public struct ProvisioningArtifactParameter: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ParameterType", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "ParameterConstraints", required: false, type: .structure), 
-            AWSShapeProperty(label: "DefaultValue", required: false, type: .string), 
-            AWSShapeProperty(label: "IsNoEcho", required: false, type: .boolean), 
-            AWSShapeProperty(label: "ParameterKey", required: false, type: .string)
-        ]
         /// The parameter type.
         public let parameterType: String?
         /// The text description of the parameter.
@@ -1158,10 +983,6 @@ extension Servicecatalog {
     public struct ListPrincipalsForPortfolioOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Principals", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// The IAM principals (users or roles) associated with the portfolio.
         public let principals: [Principal]?
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
@@ -1185,12 +1006,6 @@ extension Servicecatalog {
     public struct DescribeRecordInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: true, type: .string)
-        ]
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
         public let pageSize: Int32?
         /// The page token of the first page retrieved. If null, this retrieves the first page of size PageSize.
@@ -1219,10 +1034,6 @@ extension Servicecatalog {
     public struct ListPortfoliosForProductOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PortfolioDetails", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// List of detailed portfolio information objects.
         public let portfolioDetails: [PortfolioDetail]?
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
@@ -1246,11 +1057,6 @@ extension Servicecatalog {
     public struct CreateConstraintOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ConstraintDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "ConstraintParameters", required: false, type: .string)
-        ]
         /// The resulting detailed constraint information.
         public let constraintDetail: ConstraintDetail?
         /// The status of the current request.
@@ -1274,12 +1080,6 @@ extension Servicecatalog {
     public struct ProductViewDetail: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "ProductARN", required: false, type: .string), 
-            AWSShapeProperty(label: "ProductViewSummary", required: false, type: .structure), 
-            AWSShapeProperty(label: "CreatedTime", required: false, type: .timestamp)
-        ]
         /// Current status of the product.
         public let status: Status?
         /// The ARN associated with the product.
@@ -1307,12 +1107,6 @@ extension Servicecatalog {
     public struct CreateProvisioningArtifactInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Parameters", required: true, type: .structure), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "IdempotencyToken", required: true, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The parameters to use when creating the new provisioning artifact.
@@ -1343,11 +1137,6 @@ extension Servicecatalog {
     public struct DescribeProvisioningArtifactInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProvisioningArtifactId", required: true, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string)
-        ]
         /// The identifier of the provisioning artifact.
         public let provisioningArtifactId: String
         /// The product identifier.
@@ -1373,11 +1162,6 @@ extension Servicecatalog {
     public struct UpdateConstraintOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ConstraintDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "ConstraintParameters", required: false, type: .string)
-        ]
         /// The resulting detailed constraint information.
         public let constraintDetail: ConstraintDetail?
         /// The status of the current request.
@@ -1406,11 +1190,6 @@ extension Servicecatalog {
     public struct DescribeRecordOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "RecordDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "RecordOutputs", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// Detailed record information for the specified product. 
         public let recordDetail: RecordDetail?
         /// A list of outputs for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL.
@@ -1438,9 +1217,6 @@ extension Servicecatalog {
     public struct UpdateProvisionedProductOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "RecordDetail", required: false, type: .structure)
-        ]
         /// The detailed result of the UpdateProvisionedProduct request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered.
         public let recordDetail: RecordDetail?
 
@@ -1456,10 +1232,6 @@ extension Servicecatalog {
     public struct ListProvisioningArtifactsOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProvisioningArtifactDetails", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// List of detailed provisioning artifact information objects.
         public let provisioningArtifactDetails: [ProvisioningArtifactDetail]?
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
@@ -1483,9 +1255,6 @@ extension Servicecatalog {
     public struct TerminateProvisionedProductOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "RecordDetail", required: false, type: .structure)
-        ]
         /// The detailed result of the TerminateProvisionedProduct request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered.
         public let recordDetail: RecordDetail?
 
@@ -1501,10 +1270,6 @@ extension Servicecatalog {
     public struct ProvisioningParameter: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Key", required: false, type: .string)
-        ]
         /// The value to use for provisioning. Any constraints on this value can be found in ProvisioningArtifactParameter for Key.
         public let value: String?
         /// The ProvisioningArtifactParameter.ParameterKey parameter from DescribeProvisioningParameters.
@@ -1524,11 +1289,6 @@ extension Servicecatalog {
     public struct RecordOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "OutputValue", required: false, type: .string), 
-            AWSShapeProperty(label: "OutputKey", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The output value.
         public let outputValue: String?
         /// The output key.
@@ -1552,12 +1312,6 @@ extension Servicecatalog {
     public struct ProvisioningArtifact: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "CreatedTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "Id", required: false, type: .string)
-        ]
         /// The text description of the artifact.
         public let description: String?
         /// The name of the artifact.
@@ -1593,12 +1347,6 @@ extension Servicecatalog {
     public struct ListLaunchPathsInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string)
-        ]
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
         public let pageSize: Int32?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -1635,11 +1383,6 @@ extension Servicecatalog {
     public struct SearchProductsOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProductViewAggregations", required: false, type: .map), 
-            AWSShapeProperty(label: "ProductViewSummaries", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// A list of the product view aggregation value objects.
         public let productViewAggregations: [String: [ProductViewAggregationValue]]?
         /// A list of the product view summary objects.
@@ -1685,10 +1428,6 @@ extension Servicecatalog {
     public struct DeleteConstraintInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: true, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The identifier of the constraint to delete.
@@ -1709,10 +1448,6 @@ extension Servicecatalog {
     public struct DescribeProductViewInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: true, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The ProductViewId of the product to describe.
@@ -1733,11 +1468,6 @@ extension Servicecatalog {
     public struct DeleteProvisioningArtifactInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProvisioningArtifactId", required: true, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string)
-        ]
         /// The identifier of the provisioning artifact for the delete request.
         public let provisioningArtifactId: String
         /// The product identifier.
@@ -1763,9 +1493,6 @@ extension Servicecatalog {
     public struct ParameterConstraints: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AllowedValues", required: false, type: .list)
-        ]
         /// The values that the administrator has allowed for the parameter.
         public let allowedValues: [String]?
 
@@ -1786,12 +1513,6 @@ extension Servicecatalog {
     public struct ListPortfoliosForProductInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string)
-        ]
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
         public let pageSize: Int32?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -1820,14 +1541,6 @@ extension Servicecatalog {
     public struct PortfolioDetail: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "DisplayName", required: false, type: .string), 
-            AWSShapeProperty(label: "ProviderName", required: false, type: .string), 
-            AWSShapeProperty(label: "ARN", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "CreatedTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "Id", required: false, type: .string)
-        ]
         /// The name to use for display purposes.
         public let displayName: String?
         /// The name of the portfolio provider.
@@ -1863,12 +1576,6 @@ extension Servicecatalog {
     public struct DescribeProvisioningParametersInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProvisioningArtifactId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "PathId", required: false, type: .string)
-        ]
         /// The provisioning artifact identifier for this product.
         public let provisioningArtifactId: String
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -1898,10 +1605,6 @@ extension Servicecatalog {
     public struct SearchProductsAsAdminOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProductViewDetails", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// List of detailed product view information objects.
         public let productViewDetails: [ProductViewDetail]?
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
@@ -1925,10 +1628,6 @@ extension Servicecatalog {
     public struct ProductViewAggregationValue: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "ApproximateCount", required: false, type: .integer)
-        ]
         /// The value of the product view aggregation.
         public let value: String?
         /// An approximate count of the products that match the value.
@@ -1948,11 +1647,6 @@ extension Servicecatalog {
     public struct ListAcceptedPortfolioSharesInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string)
-        ]
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
         public let pageSize: Int32?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -1976,14 +1670,6 @@ extension Servicecatalog {
     public struct SearchProductsInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "SortBy", required: false, type: .enum), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Filters", required: false, type: .map), 
-            AWSShapeProperty(label: "SortOrder", required: false, type: .enum), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string)
-        ]
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
         public let pageSize: Int32?
         /// The sort field specifier. If no value is specified, results are not sorted.
@@ -2028,10 +1714,6 @@ extension Servicecatalog {
     public struct RecordError: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Code", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The numeric value of the error.
         public let code: String?
         /// The text description of the error.
@@ -2051,11 +1733,6 @@ extension Servicecatalog {
     public struct UpdateConstraintInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: true, type: .string)
-        ]
         /// The updated text description of the constraint.
         public let description: String?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -2080,17 +1757,6 @@ extension Servicecatalog {
     public struct ProvisionedProductDetail: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "Arn", required: false, type: .string), 
-            AWSShapeProperty(label: "LastRecordId", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "IdempotencyToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Type", required: false, type: .string), 
-            AWSShapeProperty(label: "StatusMessage", required: false, type: .string), 
-            AWSShapeProperty(label: "CreatedTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "Id", required: false, type: .string)
-        ]
         /// The current status of the ProvisionedProduct.
         public let status: RecordStatus?
         /// The ARN associated with the ProvisionedProduct object.
@@ -2138,9 +1804,6 @@ extension Servicecatalog {
     public struct ProvisionProductOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "RecordDetail", required: false, type: .structure)
-        ]
         /// The detailed result of the ProvisionProduct request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object of the request, and a list of any errors that the request encountered. 
         public let recordDetail: RecordDetail?
 
@@ -2156,10 +1819,6 @@ extension Servicecatalog {
     public struct DeleteProductInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: true, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The identifier of the product for the delete request.
@@ -2180,10 +1839,6 @@ extension Servicecatalog {
     public struct ListProvisioningArtifactsInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string)
-        ]
         /// The product identifier.
         public let productId: String
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -2204,13 +1859,6 @@ extension Servicecatalog {
     public struct ListRecordHistoryInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "AccessLevelFilter", required: false, type: .structure), 
-            AWSShapeProperty(label: "SearchFilter", required: false, type: .structure), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string)
-        ]
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
         public let pageSize: Int32?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -2242,12 +1890,6 @@ extension Servicecatalog {
     public struct AssociateProductWithPortfolioInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "SourcePortfolioId", required: false, type: .string), 
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The identifier of the source portfolio to use with this association.
@@ -2277,19 +1919,6 @@ extension Servicecatalog {
     public struct UpdateProductInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Id", required: true, type: .string), 
-            AWSShapeProperty(label: "RemoveTags", required: false, type: .list), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "SupportEmail", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "Distributor", required: false, type: .string), 
-            AWSShapeProperty(label: "AddTags", required: false, type: .list), 
-            AWSShapeProperty(label: "SupportUrl", required: false, type: .string), 
-            AWSShapeProperty(label: "Owner", required: false, type: .string), 
-            AWSShapeProperty(label: "SupportDescription", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The identifier of the product for the update request.
         public let id: String
         /// Tags to remove from the existing list of tags associated with the product.
@@ -2357,13 +1986,6 @@ extension Servicecatalog {
     public struct TerminateProvisionedProductInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "IgnoreErrors", required: false, type: .boolean), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "TerminateToken", required: true, type: .string), 
-            AWSShapeProperty(label: "ProvisionedProductId", required: false, type: .string), 
-            AWSShapeProperty(label: "ProvisionedProductName", required: false, type: .string)
-        ]
         /// If set to true, AWS Service Catalog stops managing the specified ProvisionedProduct object even if it cannot delete the underlying resources.
         public let ignoreErrors: Bool?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -2410,13 +2032,6 @@ extension Servicecatalog {
     public struct UpdateProvisioningArtifactInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProvisioningArtifactId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The identifier of the provisioning artifact for the update request.
         public let provisioningArtifactId: String
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -2457,10 +2072,6 @@ extension Servicecatalog {
     public struct DescribePortfolioOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PortfolioDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list)
-        ]
         /// Detailed portfolio information.
         public let portfolioDetail: PortfolioDetail?
         /// Tags associated with the portfolio.
@@ -2484,10 +2095,6 @@ extension Servicecatalog {
     public struct CreatePortfolioOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PortfolioDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list)
-        ]
         /// The resulting detailed portfolio information.
         public let portfolioDetail: PortfolioDetail?
         /// Tags successfully associated with the new portfolio.
@@ -2511,10 +2118,6 @@ extension Servicecatalog {
     public struct AccessLevelFilter: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Key", required: false, type: .enum)
-        ]
         /// Specifies the user to which the access level applies. A value of Self is currently supported.
         public let value: String?
         /// Specifies the access level.  Account allows results at the account level.   Role allows results based on the federated role of the specified user.  User allows results limited to the specified user. 
@@ -2534,10 +2137,6 @@ extension Servicecatalog {
     public struct ConstraintSummary: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Type", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The type of the constraint. 
         public let `type`: String?
         /// The text description of the constraint.
@@ -2557,19 +2156,6 @@ extension Servicecatalog {
     public struct ProductViewSummary: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "HasDefaultPath", required: false, type: .boolean), 
-            AWSShapeProperty(label: "ShortDescription", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: false, type: .string), 
-            AWSShapeProperty(label: "SupportEmail", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "Distributor", required: false, type: .string), 
-            AWSShapeProperty(label: "SupportUrl", required: false, type: .string), 
-            AWSShapeProperty(label: "Owner", required: false, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: false, type: .string), 
-            AWSShapeProperty(label: "SupportDescription", required: false, type: .string), 
-            AWSShapeProperty(label: "Type", required: false, type: .enum)
-        ]
         /// A value of false indicates that the product does not have a default path, while a value of true indicates that it does. If it's false, call ListLaunchPaths to disambiguate between paths. If true, ListLaunchPaths is not required, and the output of the ProductViewSummary operation can be used directly with DescribeProvisioningParameters.
         public let hasDefaultPath: Bool?
         /// Short description of the product.
@@ -2632,10 +2218,6 @@ extension Servicecatalog {
     public struct RejectPortfolioShareInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string)
-        ]
         /// The portfolio identifier.
         public let portfolioId: String
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -2656,11 +2238,6 @@ extension Servicecatalog {
     public struct UpdateProvisioningArtifactOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "ProvisioningArtifactDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "Info", required: false, type: .map)
-        ]
         /// The status of the current request.
         public let status: Status?
         /// The resulting detailed provisioning artifact information.
@@ -2688,11 +2265,6 @@ extension Servicecatalog {
     public struct DescribeConstraintOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ConstraintDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "ConstraintParameters", required: false, type: .string)
-        ]
         /// Detailed constraint information.
         public let constraintDetail: ConstraintDetail?
         /// The status of the current request.
@@ -2723,10 +2295,6 @@ extension Servicecatalog {
     public struct Principal: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PrincipalARN", required: false, type: .string), 
-            AWSShapeProperty(label: "PrincipalType", required: false, type: .enum)
-        ]
         /// The ARN representing the principal (IAM user, role, or group).
         public let principalARN: String?
         /// The principal type. Must be IAM 
@@ -2746,13 +2314,6 @@ extension Servicecatalog {
     public struct ProvisioningArtifactDetail: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "Type", required: false, type: .enum), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "CreatedTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "Id", required: false, type: .string)
-        ]
         /// The text description of the provisioning artifact.
         public let description: String?
         /// The type of the provisioning artifact.
@@ -2784,13 +2345,6 @@ extension Servicecatalog {
     public struct ListConstraintsForPortfolioInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: false, type: .string), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string)
-        ]
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
         public let pageSize: Int32?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -2823,11 +2377,6 @@ extension Servicecatalog {
     public struct DisassociateProductFromPortfolioInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string)
-        ]
         /// The portfolio identifier.
         public let portfolioId: String
         /// The product identifier.
@@ -2853,10 +2402,6 @@ extension Servicecatalog {
     public struct ListPortfoliosOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PortfolioDetails", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// List of detailed portfolio information objects.
         public let portfolioDetails: [PortfolioDetail]?
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
@@ -2888,12 +2433,6 @@ extension Servicecatalog {
     public struct ListPrincipalsForPortfolioInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PageSize", required: false, type: .integer), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "PageToken", required: false, type: .string)
-        ]
         /// The maximum number of items to return in the results. If more results exist than fit in the specified PageSize, the value of NextPageToken in the response is non-null.
         public let pageSize: Int32?
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -2938,10 +2477,6 @@ extension Servicecatalog {
     public struct DescribeProductOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProductViewSummary", required: false, type: .structure), 
-            AWSShapeProperty(label: "ProvisioningArtifacts", required: false, type: .list)
-        ]
         /// The summary metadata about the specified product.
         public let productViewSummary: ProductViewSummary?
         /// A list of provisioning artifact objects for the specified product. The ProvisioningArtifacts parameter represent the ways the specified product can be provisioned.
@@ -2965,21 +2500,6 @@ extension Servicecatalog {
     public struct RecordDetail: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ProvisioningArtifactId", required: false, type: .string), 
-            AWSShapeProperty(label: "UpdatedTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "ProvisionedProductName", required: false, type: .string), 
-            AWSShapeProperty(label: "PathId", required: false, type: .string), 
-            AWSShapeProperty(label: "ProductId", required: false, type: .string), 
-            AWSShapeProperty(label: "CreatedTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "RecordErrors", required: false, type: .list), 
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "ProvisionedProductId", required: false, type: .string), 
-            AWSShapeProperty(label: "RecordType", required: false, type: .string), 
-            AWSShapeProperty(label: "RecordId", required: false, type: .string), 
-            AWSShapeProperty(label: "ProvisionedProductType", required: false, type: .string), 
-            AWSShapeProperty(label: "RecordTags", required: false, type: .list)
-        ]
         /// The provisioning artifact identifier for this product.
         public let provisioningArtifactId: String?
         /// The time when the record for the ProvisionedProduct object was last updated.
@@ -3051,11 +2571,6 @@ extension Servicecatalog {
     public struct DescribeProvisioningArtifactOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "ProvisioningArtifactDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "Info", required: false, type: .map)
-        ]
         /// The status of the current request.
         public let status: Status?
         /// Detailed provisioning artifact information.
@@ -3083,10 +2598,6 @@ extension Servicecatalog {
     public struct AcceptPortfolioShareInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string)
-        ]
         /// The portfolio identifier.
         public let portfolioId: String
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -3107,10 +2618,6 @@ extension Servicecatalog {
     public struct RecordTag: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Key", required: false, type: .string)
-        ]
         /// The value for this tag.
         public let value: String?
         /// The key for this tag.
@@ -3130,10 +2637,6 @@ extension Servicecatalog {
     public struct ListAcceptedPortfolioSharesOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PortfolioDetails", required: false, type: .list), 
-            AWSShapeProperty(label: "NextPageToken", required: false, type: .string)
-        ]
         /// List of detailed portfolio information objects.
         public let portfolioDetails: [PortfolioDetail]?
         /// The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
@@ -3157,15 +2660,6 @@ extension Servicecatalog {
     public struct UpdatePortfolioInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Id", required: true, type: .string), 
-            AWSShapeProperty(label: "RemoveTags", required: false, type: .list), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "DisplayName", required: false, type: .string), 
-            AWSShapeProperty(label: "AddTags", required: false, type: .list), 
-            AWSShapeProperty(label: "ProviderName", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The identifier of the portfolio for the update request.
         public let id: String
         /// Tags to remove from the existing list of tags associated with the portfolio.
@@ -3218,12 +2712,6 @@ extension Servicecatalog {
     public struct AssociatePrincipalWithPortfolioInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PrincipalARN", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "PrincipalType", required: true, type: .enum), 
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string)
-        ]
         /// The ARN representing the principal (IAM user, role, or group).
         public let principalARN: String
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
@@ -3254,10 +2742,6 @@ extension Servicecatalog {
     public struct DescribeProductAsAdminInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: true, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The identifier of the product for which to retrieve information.
@@ -3278,10 +2762,6 @@ extension Servicecatalog {
     public struct DescribePortfolioInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: true, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// The identifier of the portfolio for which to retrieve information.
@@ -3302,20 +2782,6 @@ extension Servicecatalog {
     public struct CreateProductInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string), 
-            AWSShapeProperty(label: "SupportEmail", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: true, type: .string), 
-            AWSShapeProperty(label: "Distributor", required: false, type: .string), 
-            AWSShapeProperty(label: "IdempotencyToken", required: true, type: .string), 
-            AWSShapeProperty(label: "ProductType", required: true, type: .enum), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "ProvisioningArtifactParameters", required: true, type: .structure), 
-            AWSShapeProperty(label: "SupportUrl", required: false, type: .string), 
-            AWSShapeProperty(label: "Owner", required: true, type: .string), 
-            AWSShapeProperty(label: "SupportDescription", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
         public let acceptLanguage: String?
         /// Contact email for product support.
@@ -3384,11 +2850,6 @@ extension Servicecatalog {
     public struct CreateProvisioningArtifactOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "ProvisioningArtifactDetail", required: false, type: .structure), 
-            AWSShapeProperty(label: "Info", required: false, type: .map)
-        ]
         /// The status of the current request.
         public let status: Status?
         /// The resulting detailed provisioning artifact information.
@@ -3416,10 +2877,6 @@ extension Servicecatalog {
     public struct ListPortfolioAccessInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "PortfolioId", required: true, type: .string), 
-            AWSShapeProperty(label: "AcceptLanguage", required: false, type: .string)
-        ]
         /// The portfolio identifier.
         public let portfolioId: String
         /// The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.

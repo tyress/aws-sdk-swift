@@ -39,10 +39,6 @@ extension Cloudformation {
     public struct DescribeStacksInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The name or the unique stack ID that is associated with the stack, which are not always interchangeable:   Running stacks: You can specify either the stack's name or its unique stack ID.   Deleted stacks: You must specify the unique stack ID.   Default: There is no default value.
         public let stackName: String?
         /// A string that identifies the next page of stacks that you want to retrieve.
@@ -67,11 +63,6 @@ extension Cloudformation {
     public struct DeleteStackInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "RetainResources", required: false, type: .list), 
-            AWSShapeProperty(label: "RoleARN", required: false, type: .string)
-        ]
         /// The name or the unique stack ID that is associated with the stack.
         public let stackName: String
         /// For stacks in the DELETE_FAILED state, a list of resource logical IDs that are associated with the resources you want to retain. During deletion, AWS CloudFormation deletes the stack but does not delete the retained resources. Retaining resources is useful when you cannot delete a resource, such as a non-empty S3 bucket, but you want to delete the stack.
@@ -112,9 +103,6 @@ extension Cloudformation {
     public struct GetStackPolicyOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackPolicyBody", required: false, type: .string)
-        ]
         /// Structure containing the stack policy body. (For more information, go to  Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.)
         public let stackPolicyBody: String?
 
@@ -130,15 +118,6 @@ extension Cloudformation {
     public struct ResourceChange: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Details", required: false, type: .list), 
-            AWSShapeProperty(label: "Action", required: false, type: .enum), 
-            AWSShapeProperty(label: "LogicalResourceId", required: false, type: .string), 
-            AWSShapeProperty(label: "ResourceType", required: false, type: .string), 
-            AWSShapeProperty(label: "Replacement", required: false, type: .enum), 
-            AWSShapeProperty(label: "PhysicalResourceId", required: false, type: .string), 
-            AWSShapeProperty(label: "Scope", required: false, type: .list)
-        ]
         /// For the Modify action, a list of ResourceChangeDetail structures that describes the changes that AWS CloudFormation will make to the resource. 
         public let details: [ResourceChangeDetail]?
         /// The action that AWS CloudFormation takes on the resource, such as Add (adds a new resource), Modify (changes a resource), or Remove (deletes a resource).
@@ -182,16 +161,6 @@ extension Cloudformation {
     public struct StackSummary: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "LastUpdatedTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "DeletionTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "StackId", required: false, type: .string), 
-            AWSShapeProperty(label: "StackStatus", required: true, type: .enum), 
-            AWSShapeProperty(label: "CreationTime", required: true, type: .timestamp), 
-            AWSShapeProperty(label: "StackStatusReason", required: false, type: .string), 
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "TemplateDescription", required: false, type: .string)
-        ]
         /// The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
         public let lastUpdatedTime: Date?
         /// The time the stack was deleted.
@@ -238,10 +207,6 @@ extension Cloudformation {
     public struct CreateChangeSetOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackId", required: false, type: .string), 
-            AWSShapeProperty(label: "Id", required: false, type: .string)
-        ]
         /// The unique ID of the stack.
         public let stackId: String?
         /// The Amazon Resource Name (ARN) of the change set.
@@ -261,24 +226,6 @@ extension Cloudformation {
     public struct Stack: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackStatus", required: true, type: .enum), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "RoleARN", required: false, type: .string), 
-            AWSShapeProperty(label: "DisableRollback", required: false, type: .boolean), 
-            AWSShapeProperty(label: "CreationTime", required: true, type: .timestamp), 
-            AWSShapeProperty(label: "Outputs", required: false, type: .list), 
-            AWSShapeProperty(label: "StackStatusReason", required: false, type: .string), 
-            AWSShapeProperty(label: "NotificationARNs", required: false, type: .list), 
-            AWSShapeProperty(label: "LastUpdatedTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "Parameters", required: false, type: .list), 
-            AWSShapeProperty(label: "StackId", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSetId", required: false, type: .string), 
-            AWSShapeProperty(label: "TimeoutInMinutes", required: false, type: .integer), 
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "Capabilities", required: false, type: .list)
-        ]
         /// Current status of the stack.
         public let stackStatus: StackStatus
         /// A list of Tags that specify information about the stack.
@@ -369,22 +316,6 @@ extension Cloudformation {
     public struct UpdateStackInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackPolicyBody", required: false, type: .string), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "RoleARN", required: false, type: .string), 
-            AWSShapeProperty(label: "StackPolicyDuringUpdateBody", required: false, type: .string), 
-            AWSShapeProperty(label: "UsePreviousTemplate", required: false, type: .boolean), 
-            AWSShapeProperty(label: "StackPolicyDuringUpdateURL", required: false, type: .string), 
-            AWSShapeProperty(label: "StackPolicyURL", required: false, type: .string), 
-            AWSShapeProperty(label: "NotificationARNs", required: false, type: .list), 
-            AWSShapeProperty(label: "Parameters", required: false, type: .list), 
-            AWSShapeProperty(label: "ResourceTypes", required: false, type: .list), 
-            AWSShapeProperty(label: "TemplateURL", required: false, type: .string), 
-            AWSShapeProperty(label: "TemplateBody", required: false, type: .string), 
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "Capabilities", required: false, type: .list)
-        ]
         /// Structure containing a new stack policy body. You can specify either the StackPolicyBody or the StackPolicyURL parameter, but not both. You might update the stack policy, for example, in order to protect a new resource that you created during a stack update. If you do not specify a stack policy, the current policy that is associated with the stack is unchanged.
         public let stackPolicyBody: String?
         /// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to supported resources in the stack. You can specify a maximum number of 10 tags. If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's tags. If you specify an empty value, AWS CloudFormation removes all associated tags.
@@ -461,9 +392,6 @@ extension Cloudformation {
     public struct ListExportsInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// A string (provided by the ListExports response output) that identifies the next page of exported output values that you asked to retrieve.
         public let nextToken: String?
 
@@ -479,14 +407,6 @@ extension Cloudformation {
     public struct ParameterDeclaration: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ParameterType", required: false, type: .string), 
-            AWSShapeProperty(label: "NoEcho", required: false, type: .boolean), 
-            AWSShapeProperty(label: "ParameterConstraints", required: false, type: .structure), 
-            AWSShapeProperty(label: "DefaultValue", required: false, type: .string), 
-            AWSShapeProperty(label: "ParameterKey", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The type of parameter.
         public let parameterType: String?
         /// Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
@@ -522,18 +442,6 @@ extension Cloudformation {
     public struct StackResourceDetail: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Metadata", required: false, type: .string), 
-            AWSShapeProperty(label: "ResourceStatus", required: true, type: .enum), 
-            AWSShapeProperty(label: "StackId", required: false, type: .string), 
-            AWSShapeProperty(label: "ResourceType", required: true, type: .string), 
-            AWSShapeProperty(label: "PhysicalResourceId", required: false, type: .string), 
-            AWSShapeProperty(label: "LogicalResourceId", required: true, type: .string), 
-            AWSShapeProperty(label: "LastUpdatedTimestamp", required: true, type: .timestamp), 
-            AWSShapeProperty(label: "ResourceStatusReason", required: false, type: .string), 
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The content of the Metadata attribute declared for the resource. For more information, see Metadata Attribute in the AWS CloudFormation User Guide.
         public let metadata: String?
         /// Current status of the resource.
@@ -602,10 +510,6 @@ extension Cloudformation {
     public struct ListImportsInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "ExportName", required: true, type: .string)
-        ]
         /// A string (provided by the ListImports response output) that identifies the next page of stacks that are importing the specified exported output value. 
         public let nextToken: String?
         /// The name of the exported output value. AWS CloudFormation returns the stack names that are importing this value. 
@@ -626,10 +530,6 @@ extension Cloudformation {
     public struct ListChangeSetsOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Summaries", required: false, type: .list)
-        ]
         /// If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null.
         public let nextToken: String?
         /// A list of ChangeSetSummary structures that provides the ID and status of each change set for the specified stack.
@@ -653,10 +553,6 @@ extension Cloudformation {
     public struct DescribeStacksOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Stacks", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// A list of stack structures.
         public let stacks: [Stack]?
         /// If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
@@ -680,10 +576,6 @@ extension Cloudformation {
     public struct ExecuteChangeSetInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSetName", required: true, type: .string)
-        ]
         /// If you specified the name of a change set, specify the stack name or ID (ARN) that is associated with the change set you want to execute.
         public let stackName: String?
         /// The name or ARN of the change set that you want use to update the specified stack.
@@ -704,10 +596,6 @@ extension Cloudformation {
     public struct Tag: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Key", required: false, type: .string)
-        ]
         ///  Required. A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
         public let value: String?
         ///  Required. A string used to identify this tag. You can specify a maximum of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have the reserved prefix: aws:.
@@ -727,10 +615,6 @@ extension Cloudformation {
     public struct ListStackResourcesOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackResourceSummaries", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// A list of StackResourceSummary structures.
         public let stackResourceSummaries: [StackResourceSummary]?
         /// If the output exceeds 1 MB, a string that identifies the next page of stack resources. If no additional page exists, this value is null.
@@ -754,12 +638,6 @@ extension Cloudformation {
     public struct TemplateParameter: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NoEcho", required: false, type: .boolean), 
-            AWSShapeProperty(label: "DefaultValue", required: false, type: .string), 
-            AWSShapeProperty(label: "ParameterKey", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// Flag indicating whether the parameter should be displayed as plain text in logs and UIs.
         public let noEcho: Bool?
         /// The default value associated with the parameter.
@@ -787,9 +665,6 @@ extension Cloudformation {
     public struct DescribeAccountLimitsInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// A string that identifies the next page of limits that you want to retrieve.
         public let nextToken: String?
 
@@ -805,13 +680,6 @@ extension Cloudformation {
     public struct ValidateTemplateOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "CapabilitiesReason", required: false, type: .string), 
-            AWSShapeProperty(label: "DeclaredTransforms", required: false, type: .list), 
-            AWSShapeProperty(label: "Parameters", required: false, type: .list), 
-            AWSShapeProperty(label: "Capabilities", required: false, type: .list), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The list of resources that generated the values in the Capabilities response element.
         public let capabilitiesReason: String?
         /// A list of the transforms that are declared in the template.
@@ -847,12 +715,6 @@ extension Cloudformation {
     public struct ResourceChangeDetail: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Target", required: false, type: .structure), 
-            AWSShapeProperty(label: "CausingEntity", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSource", required: false, type: .enum), 
-            AWSShapeProperty(label: "Evaluation", required: false, type: .enum)
-        ]
         /// A ResourceTargetDefinition structure that describes the field that AWS CloudFormation will change and whether the resource will be recreated.
         public let target: ResourceTargetDefinition?
         /// The identity of the entity that triggered this change. This entity is a member of the group that is specified by the ChangeSource field. For example, if you modified the value of the KeyPairName parameter, the CausingEntity is the name of the parameter (KeyPairName). If the ChangeSource value is DirectModification, no value is given for CausingEntity.
@@ -889,10 +751,6 @@ extension Cloudformation {
     public struct ListStacksInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "StackStatusFilter", required: false, type: .list)
-        ]
         /// A string that identifies the next page of stacks that you want to retrieve.
         public let nextToken: String?
         /// Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the StackStatus parameter of the Stack data type.
@@ -926,12 +784,6 @@ extension Cloudformation {
     public struct SignalResourceInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "UniqueId", required: true, type: .string), 
-            AWSShapeProperty(label: "Status", required: true, type: .enum), 
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "LogicalResourceId", required: true, type: .string)
-        ]
         /// A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.
         public let uniqueId: String
         /// The status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.
@@ -977,10 +829,6 @@ extension Cloudformation {
     public struct DescribeStackResourceInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "LogicalResourceId", required: true, type: .string)
-        ]
         /// The name or the unique stack ID that is associated with the stack, which are not always interchangeable:   Running stacks: You can specify either the stack's name or its unique stack ID.   Deleted stacks: You must specify the unique stack ID.   Default: There is no default value.
         public let stackName: String
         /// The logical name of the resource as specified in the template. Default: There is no default value.
@@ -1002,10 +850,6 @@ extension Cloudformation {
     public struct DescribeStackEventsInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The name or the unique stack ID that is associated with the stack, which are not always interchangeable:   Running stacks: You can specify either the stack's name or its unique stack ID.   Deleted stacks: You must specify the unique stack ID.   Default: There is no default value.
         public let stackName: String?
         /// A string that identifies the next page of events that you want to retrieve.
@@ -1025,11 +869,6 @@ extension Cloudformation {
     public struct GetTemplateSummaryInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "TemplateURL", required: false, type: .string), 
-            AWSShapeProperty(label: "TemplateBody", required: false, type: .string)
-        ]
         /// The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID. Conditional: You must specify only one of the following parameters: StackName, TemplateBody, or TemplateURL.
         public let stackName: String?
         /// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see Template Anatomy in the AWS CloudFormation User Guide. Conditional: You must specify only one of the following parameters: StackName, TemplateBody, or TemplateURL.
@@ -1053,11 +892,6 @@ extension Cloudformation {
     public struct EstimateTemplateCostInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Parameters", required: false, type: .list), 
-            AWSShapeProperty(label: "TemplateURL", required: false, type: .string), 
-            AWSShapeProperty(label: "TemplateBody", required: false, type: .string)
-        ]
         /// A list of Parameter structures that specify input parameters.
         public let parameters: [Parameter]?
         /// Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to Template Anatomy in the AWS CloudFormation User Guide. Conditional: You must pass TemplateURL or TemplateBody. If both are passed, only TemplateBody is used.
@@ -1085,11 +919,6 @@ extension Cloudformation {
     public struct DescribeChangeSetInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSetName", required: true, type: .string)
-        ]
         /// If you specified the name of a change set, specify the stack name or ID (ARN) of the change set you want to describe.
         public let stackName: String?
         /// A string (provided by the DescribeChangeSet response output) that identifies the next page of information that you want to retrieve.
@@ -1114,10 +943,6 @@ extension Cloudformation {
     public struct ValidateTemplateInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "TemplateURL", required: false, type: .string), 
-            AWSShapeProperty(label: "TemplateBody", required: false, type: .string)
-        ]
         /// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to Template Anatomy in the AWS CloudFormation User Guide. Conditional: You must pass TemplateURL or TemplateBody. If both are passed, only TemplateBody is used.
         public let templateURL: String?
         /// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to Template Anatomy in the AWS CloudFormation User Guide. Conditional: You must pass TemplateURL or TemplateBody. If both are passed, only TemplateBody is used.
@@ -1143,11 +968,6 @@ extension Cloudformation {
     public struct Parameter: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ParameterValue", required: false, type: .string), 
-            AWSShapeProperty(label: "UsePreviousValue", required: false, type: .boolean), 
-            AWSShapeProperty(label: "ParameterKey", required: false, type: .string)
-        ]
         /// The value associated with the parameter.
         public let parameterValue: String?
         /// During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify true, do not specify a parameter value.
@@ -1179,10 +999,6 @@ extension Cloudformation {
     public struct ListExportsOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Exports", required: false, type: .list)
-        ]
         /// If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
         public let nextToken: String?
         /// The output for the ListExports action.
@@ -1206,10 +1022,6 @@ extension Cloudformation {
     public struct ListImportsOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Imports", required: false, type: .list), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// A list of stack names that are importing the specified exported output value. 
         public let imports: [String]?
         /// A string that identifies the next page of exports. If there is no additional page, this value is null.
@@ -1229,9 +1041,6 @@ extension Cloudformation {
     public struct CreateStackOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackId", required: false, type: .string)
-        ]
         /// Unique identifier of the stack.
         public let stackId: String?
 
@@ -1247,10 +1056,6 @@ extension Cloudformation {
     public struct Change: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Type", required: false, type: .enum), 
-            AWSShapeProperty(label: "ResourceChange", required: false, type: .structure)
-        ]
         /// The type of entity that AWS CloudFormation changes. Currently, the only entity type is Resource.
         public let `type`: ChangeType?
         /// A ResourceChange structure that describes the resource and action that AWS CloudFormation will perform.
@@ -1270,11 +1075,6 @@ extension Cloudformation {
     public struct ContinueUpdateRollbackInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "RoleARN", required: false, type: .string), 
-            AWSShapeProperty(label: "ResourcesToSkip", required: false, type: .list)
-        ]
         /// The name or the unique ID of the stack that you want to continue rolling back.  Don't specify the name of a nested stack (a stack that was created by using the AWS::CloudFormation::Stack resource). Instead, use this operation on the parent stack (the stack that contains the AWS::CloudFormation::Stack resource). 
         public let stackName: String
         /// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
@@ -1299,22 +1099,6 @@ extension Cloudformation {
     public struct CreateStackInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackPolicyBody", required: false, type: .string), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "OnFailure", required: false, type: .enum), 
-            AWSShapeProperty(label: "RoleARN", required: false, type: .string), 
-            AWSShapeProperty(label: "DisableRollback", required: false, type: .boolean), 
-            AWSShapeProperty(label: "StackPolicyURL", required: false, type: .string), 
-            AWSShapeProperty(label: "NotificationARNs", required: false, type: .list), 
-            AWSShapeProperty(label: "Parameters", required: false, type: .list), 
-            AWSShapeProperty(label: "ResourceTypes", required: false, type: .list), 
-            AWSShapeProperty(label: "TimeoutInMinutes", required: false, type: .integer), 
-            AWSShapeProperty(label: "TemplateURL", required: false, type: .string), 
-            AWSShapeProperty(label: "TemplateBody", required: false, type: .string), 
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "Capabilities", required: false, type: .list)
-        ]
         /// Structure containing the stack policy body. For more information, go to  Prevent Updates to Stack Resources in the AWS CloudFormation User Guide. You can specify either the StackPolicyBody or the StackPolicyURL parameter, but not both.
         public let stackPolicyBody: String?
         /// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 10 tags can be specified.
@@ -1401,11 +1185,6 @@ extension Cloudformation {
     public struct SetStackPolicyInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "StackPolicyBody", required: false, type: .string), 
-            AWSShapeProperty(label: "StackPolicyURL", required: false, type: .string)
-        ]
         /// The name or unique stack ID that you want to associate a policy with.
         public let stackName: String
         /// Structure containing the stack policy body. For more information, go to  Prevent Updates to Stack Resources in the AWS CloudFormation User Guide. You can specify either the StackPolicyBody or the StackPolicyURL parameter, but not both.
@@ -1430,9 +1209,6 @@ extension Cloudformation {
     public struct DescribeStackResourcesOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackResources", required: false, type: .list)
-        ]
         /// A list of StackResource structures.
         public let stackResources: [StackResource]?
 
@@ -1452,11 +1228,6 @@ extension Cloudformation {
     public struct Export: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ExportingStackId", required: false, type: .string), 
-            AWSShapeProperty(label: "Value", required: false, type: .string), 
-            AWSShapeProperty(label: "Name", required: false, type: .string)
-        ]
         /// The stack that contains the exported output name and value.
         public let exportingStackId: String?
         /// The value of the exported output, such as a resource physical ID. This value is defined in the Export field in the associated stack's Outputs section.
@@ -1480,16 +1251,6 @@ extension Cloudformation {
     public struct GetTemplateSummaryOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Metadata", required: false, type: .string), 
-            AWSShapeProperty(label: "CapabilitiesReason", required: false, type: .string), 
-            AWSShapeProperty(label: "Parameters", required: false, type: .list), 
-            AWSShapeProperty(label: "ResourceTypes", required: false, type: .list), 
-            AWSShapeProperty(label: "Version", required: false, type: .string), 
-            AWSShapeProperty(label: "DeclaredTransforms", required: false, type: .list), 
-            AWSShapeProperty(label: "Capabilities", required: false, type: .list), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The value that is defined for the Metadata property of the template.
         public let metadata: String?
         /// The list of resources that generated the values in the Capabilities response element.
@@ -1537,10 +1298,6 @@ extension Cloudformation {
     public struct ListStacksOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "StackSummaries", required: false, type: .list)
-        ]
         /// If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
         public let nextToken: String?
         /// A list of StackSummary structures containing information about the specified stacks.
@@ -1564,10 +1321,6 @@ extension Cloudformation {
     public struct AccountLimit: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Value", required: false, type: .integer), 
-            AWSShapeProperty(label: "Name", required: false, type: .string)
-        ]
         /// The value that is associated with the account limit name.
         public let value: Int32?
         /// The name of the account limit. Currently, the only account limit is StackLimit.
@@ -1608,11 +1361,6 @@ extension Cloudformation {
     public struct DescribeStackResourcesInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "LogicalResourceId", required: false, type: .string), 
-            AWSShapeProperty(label: "PhysicalResourceId", required: false, type: .string)
-        ]
         /// The name or the unique stack ID that is associated with the stack, which are not always interchangeable:   Running stacks: You can specify either the stack's name or its unique stack ID.   Deleted stacks: You must specify the unique stack ID.   Default: There is no default value. Required: Conditional. If you do not specify StackName, you must specify PhysicalResourceId.
         public let stackName: String?
         /// The logical name of the resource as specified in the template. Default: There is no default value.
@@ -1636,23 +1384,6 @@ extension Cloudformation {
     public struct DescribeChangeSetOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ExecutionStatus", required: false, type: .enum), 
-            AWSShapeProperty(label: "Changes", required: false, type: .list), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "CreationTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "NotificationARNs", required: false, type: .list), 
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "StatusReason", required: false, type: .string), 
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "Parameters", required: false, type: .list), 
-            AWSShapeProperty(label: "StackId", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSetName", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSetId", required: false, type: .string), 
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "Capabilities", required: false, type: .list)
-        ]
         /// If the change set execution status is AVAILABLE, you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an UNAVAILABLE state because AWS CloudFormation is still creating it or in an OBSOLETE state because the stack was already updated.
         public let executionStatus: ExecutionStatus?
         /// A list of Change structures that describes the resources AWS CloudFormation changes if you execute the change set.
@@ -1736,10 +1467,6 @@ extension Cloudformation {
     public struct ListStackResourcesInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The name or the unique stack ID that is associated with the stack, which are not always interchangeable:   Running stacks: You can specify either the stack's name or its unique stack ID.   Deleted stacks: You must specify the unique stack ID.   Default: There is no default value.
         public let stackName: String
         /// A string that identifies the next page of stack resources that you want to retrieve.
@@ -1760,9 +1487,6 @@ extension Cloudformation {
     public struct EstimateTemplateCostOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Url", required: false, type: .string)
-        ]
         /// An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
         public let url: String?
 
@@ -1778,9 +1502,6 @@ extension Cloudformation {
     public struct UpdateStackOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackId", required: false, type: .string)
-        ]
         /// Unique identifier of the stack.
         public let stackId: String?
 
@@ -1796,22 +1517,6 @@ extension Cloudformation {
     public struct CreateChangeSetInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ClientToken", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSetType", required: false, type: .enum), 
-            AWSShapeProperty(label: "Tags", required: false, type: .list), 
-            AWSShapeProperty(label: "RoleARN", required: false, type: .string), 
-            AWSShapeProperty(label: "UsePreviousTemplate", required: false, type: .boolean), 
-            AWSShapeProperty(label: "Description", required: false, type: .string), 
-            AWSShapeProperty(label: "NotificationARNs", required: false, type: .list), 
-            AWSShapeProperty(label: "Parameters", required: false, type: .list), 
-            AWSShapeProperty(label: "ChangeSetName", required: true, type: .string), 
-            AWSShapeProperty(label: "ResourceTypes", required: false, type: .list), 
-            AWSShapeProperty(label: "TemplateURL", required: false, type: .string), 
-            AWSShapeProperty(label: "TemplateBody", required: false, type: .string), 
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "Capabilities", required: false, type: .list)
-        ]
         /// A unique identifier for this CreateChangeSet request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to create another change set with the same name. You might retry CreateChangeSet requests to ensure that AWS CloudFormation successfully received them.
         public let clientToken: String?
         /// The type of change set operation. To create a change set for a new stack, specify CREATE. To create a change set for an existing stack, specify UPDATE. If you create a change set for a new stack, AWS Cloudformation creates a stack with a unique stack ID, but no template or resources. The stack will be in the  REVIEW_IN_PROGRESS  state until you execute the change set. By default, AWS CloudFormation specifies UPDATE. You can't use the UPDATE type to create a change set for a new stack or the CREATE type to create a change set for an existing stack.
@@ -1889,10 +1594,6 @@ extension Cloudformation {
     public struct ListChangeSetsInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: true, type: .string), 
-            AWSShapeProperty(label: "NextToken", required: false, type: .string)
-        ]
         /// The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.
         public let stackName: String
         /// A string (provided by the ListChangeSets response output) that identifies the next page of change sets that you want to retrieve.
@@ -1934,11 +1635,6 @@ extension Cloudformation {
     public struct GetTemplateInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSetName", required: false, type: .string), 
-            AWSShapeProperty(label: "TemplateStage", required: false, type: .enum)
-        ]
         /// The name or the unique stack ID that is associated with the stack, which are not always interchangeable:   Running stacks: You can specify either the stack's name or its unique stack ID.   Deleted stacks: You must specify the unique stack ID.   Default: There is no default value.
         public let stackName: String?
         /// The name or Amazon Resource Name (ARN) of a change set for which AWS CloudFormation returns the associated template. If you specify a name, you must also specify the StackName.
@@ -1972,10 +1668,6 @@ extension Cloudformation {
     public struct DescribeStackEventsOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "StackEvents", required: false, type: .list)
-        ]
         /// If the output exceeds 1 MB in size, a string that identifies the next page of events. If no additional page exists, this value is null.
         public let nextToken: String?
         /// A list of StackEvents structures.
@@ -1999,18 +1691,6 @@ extension Cloudformation {
     public struct StackEvent: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Timestamp", required: true, type: .timestamp), 
-            AWSShapeProperty(label: "ResourceStatus", required: false, type: .enum), 
-            AWSShapeProperty(label: "StackId", required: true, type: .string), 
-            AWSShapeProperty(label: "EventId", required: true, type: .string), 
-            AWSShapeProperty(label: "ResourceType", required: false, type: .string), 
-            AWSShapeProperty(label: "LogicalResourceId", required: false, type: .string), 
-            AWSShapeProperty(label: "PhysicalResourceId", required: false, type: .string), 
-            AWSShapeProperty(label: "ResourceProperties", required: false, type: .string), 
-            AWSShapeProperty(label: "ResourceStatusReason", required: false, type: .string), 
-            AWSShapeProperty(label: "StackName", required: true, type: .string)
-        ]
         /// Time the status was updated.
         public let timestamp: Date
         /// Current status of the resource.
@@ -2066,17 +1746,6 @@ extension Cloudformation {
     public struct ChangeSetSummary: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Status", required: false, type: .enum), 
-            AWSShapeProperty(label: "StatusReason", required: false, type: .string), 
-            AWSShapeProperty(label: "ExecutionStatus", required: false, type: .enum), 
-            AWSShapeProperty(label: "StackId", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSetName", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSetId", required: false, type: .string), 
-            AWSShapeProperty(label: "CreationTime", required: false, type: .timestamp), 
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The state of the change set, such as CREATE_IN_PROGRESS, CREATE_COMPLETE, or FAILED.
         public let status: ChangeSetStatus?
         /// A description of the change set's status. For example, if your change set is in the FAILED state, AWS CloudFormation shows the error message.
@@ -2130,11 +1799,6 @@ extension Cloudformation {
     public struct Output: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "OutputValue", required: false, type: .string), 
-            AWSShapeProperty(label: "OutputKey", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// The value associated with the output.
         public let outputValue: String?
         /// The key associated with the output.
@@ -2158,9 +1822,6 @@ extension Cloudformation {
     public struct ParameterConstraints: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "AllowedValues", required: false, type: .list)
-        ]
         /// A list of values that are permitted for a parameter.
         public let allowedValues: [String]?
 
@@ -2176,11 +1837,6 @@ extension Cloudformation {
     public struct ResourceTargetDefinition: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "RequiresRecreation", required: false, type: .enum), 
-            AWSShapeProperty(label: "Name", required: false, type: .string), 
-            AWSShapeProperty(label: "Attribute", required: false, type: .enum)
-        ]
         /// If the Attribute value is Properties, indicates whether a change to this property causes the resource to be recreated. The value can be Never, Always, or Conditionally. To determine the conditions for a Conditionally recreation, see the update behavior for that property in the AWS CloudFormation User Guide.
         public let requiresRecreation: RequiresRecreation?
         /// If the Attribute value is Properties, the name of the property. For all other attributes, the value is null.
@@ -2204,14 +1860,6 @@ extension Cloudformation {
     public struct StackResourceSummary: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "ResourceType", required: true, type: .string), 
-            AWSShapeProperty(label: "PhysicalResourceId", required: false, type: .string), 
-            AWSShapeProperty(label: "ResourceStatusReason", required: false, type: .string), 
-            AWSShapeProperty(label: "ResourceStatus", required: true, type: .enum), 
-            AWSShapeProperty(label: "LogicalResourceId", required: true, type: .string), 
-            AWSShapeProperty(label: "LastUpdatedTimestamp", required: true, type: .timestamp)
-        ]
         /// Type of resource. (For more information, go to  AWS Resource Types Reference in the AWS CloudFormation User Guide.)
         public let resourceType: String
         /// The name or unique identifier that corresponds to a physical instance ID of the resource.
@@ -2251,9 +1899,6 @@ extension Cloudformation {
     public struct CancelUpdateStackInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: true, type: .string)
-        ]
         /// The name or the unique stack ID that is associated with the stack.
         public let stackName: String
 
@@ -2270,9 +1915,6 @@ extension Cloudformation {
     public struct GetStackPolicyInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: true, type: .string)
-        ]
         /// The name or unique stack ID that is associated with the stack whose policy you want to get.
         public let stackName: String
 
@@ -2289,17 +1931,6 @@ extension Cloudformation {
     public struct StackResource: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "Timestamp", required: true, type: .timestamp), 
-            AWSShapeProperty(label: "ResourceStatus", required: true, type: .enum), 
-            AWSShapeProperty(label: "StackId", required: false, type: .string), 
-            AWSShapeProperty(label: "ResourceType", required: true, type: .string), 
-            AWSShapeProperty(label: "PhysicalResourceId", required: false, type: .string), 
-            AWSShapeProperty(label: "LogicalResourceId", required: true, type: .string), 
-            AWSShapeProperty(label: "ResourceStatusReason", required: false, type: .string), 
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "Description", required: false, type: .string)
-        ]
         /// Time the status was updated.
         public let timestamp: Date
         /// Current status of the resource.
@@ -2351,10 +1982,6 @@ extension Cloudformation {
     public struct DescribeAccountLimitsOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "NextToken", required: false, type: .string), 
-            AWSShapeProperty(label: "AccountLimits", required: false, type: .list)
-        ]
         /// If the output exceeds 1 MB in size, a string that identifies the next page of limits. If no additional page exists, this value is null.
         public let nextToken: String?
         /// An account limit structure that contain a list of AWS CloudFormation account limits and their values.
@@ -2378,10 +2005,6 @@ extension Cloudformation {
     public struct DeleteChangeSetInput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackName", required: false, type: .string), 
-            AWSShapeProperty(label: "ChangeSetName", required: true, type: .string)
-        ]
         /// If you specified the name of a change set to delete, specify the stack name or ID (ARN) that is associated with it.
         public let stackName: String?
         /// The name or Amazon Resource Name (ARN) of the change set that you want to delete.
@@ -2402,10 +2025,6 @@ extension Cloudformation {
     public struct GetTemplateOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StagesAvailable", required: false, type: .list), 
-            AWSShapeProperty(label: "TemplateBody", required: false, type: .string)
-        ]
         /// The stage of the template that you can retrieve. For stacks, the Original and Processed templates are always available. For change sets, the Original template is always available. After AWS CloudFormation finishes creating the change set, the Processed template becomes available.
         public let stagesAvailable: [TemplateStage]?
         /// Structure containing the template body. (For more information, go to Template Anatomy in the AWS CloudFormation User Guide.) AWS CloudFormation returns the same template that was used when the stack was created.
@@ -2425,9 +2044,6 @@ extension Cloudformation {
     public struct DescribeStackResourceOutput: AWSShape {
         /// The key for the payload
         public static let payload: String? = nil
-        public static var parsingHints: [AWSShapeProperty] = [
-            AWSShapeProperty(label: "StackResourceDetail", required: false, type: .structure)
-        ]
         /// A StackResourceDetail structure containing the description of the specified resource in the specified stack.
         public let stackResourceDetail: StackResourceDetail?
 
