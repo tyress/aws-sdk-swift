@@ -5,5 +5,6 @@
 .env
 node_modules
 build
-awssdkswift.json
-docs/docsets
+awssdkswift-sourcekitten-doc.json
+.jazzy.yaml
+docsets/AWSSDKSwift.tgz
